@@ -71,8 +71,8 @@ class c_TransactionValidateNotice extends Controller
     }
 
     public function submit(Request $request) {
-        $noPO = $request->no_po;
         $data = json_decode($request->data, true);
+        $noPO = $data['no_po'];
         $kendaraan = $data['data'];
         $jasa = DB::table('ms_dealer')->select('harga_jasa')->where('id','=',$data['id_dealer'])->first();
         $harga = msHarga::all()->keyBy('kode_kendaraan');
@@ -80,12 +80,14 @@ class c_TransactionValidateNotice extends Controller
         try {
             DB::beginTransaction();
 
+            $total = 0;
             foreach ($kendaraan as $k) {
                 $hargaJasa = $jasa->harga_jasa;
                 $hargaNotice = $harga[$k['tipe_kendaraan']]->harga;
                 $pph = $harga[$k['tipe_kendaraan']]->pph;
                 $pnbp = $harga[$k['tipe_kendaraan']]->pnbp;
                 $subtotal = ($hargaJasa+$hargaNotice+$pnbp)-$pph;
+                $total += $subtotal;
                 $trn = DB::table('po_trns')
                     ->where('id','=',$k['id'])
                     ->update([
@@ -111,13 +113,19 @@ class c_TransactionValidateNotice extends Controller
 
             $trn = DB::table('po_trns')
                 ->where('no_po','=',$noPO)
-                ->where('status_bbn_proses','=',0)
-                ->get();
+                ->where('status_bbn_proses','=',0);
             if ($trn->count() == 0) {
                 DB::table('po_mst')
                     ->where('no_po','=',$noPO)
                     ->update([
-                        'status_notice' => 1
+                        'status_notice' => 1,
+                        'total' => DB::raw('total+'.$total)
+                    ]);
+            } else {
+                DB::table('po_mst')
+                    ->where('no_po','=',$noPO)
+                    ->update([
+                        'total' => DB::raw('total+'.$total)
                     ]);
             }
 
