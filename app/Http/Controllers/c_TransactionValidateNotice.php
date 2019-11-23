@@ -111,10 +111,10 @@ class c_TransactionValidateNotice extends Controller
                     ]);
             }
 
-            $trn = DB::table('po_trns')
+            $trnNotice = DB::table('po_trns')
                 ->where('no_po','=',$noPO)
                 ->where('status_bbn_proses','=',0);
-            if ($trn->count() == 0) {
+            if ($trnNotice->count() == 0) {
                 DB::table('po_mst')
                     ->where('no_po','=',$noPO)
                     ->update([
@@ -126,6 +126,17 @@ class c_TransactionValidateNotice extends Controller
                     ->where('no_po','=',$noPO)
                     ->update([
                         'total' => DB::raw('total+'.$total)
+                    ]);
+            }
+
+            $trnKelengkapan = DB::table('po_trns')
+                ->where('no_po','=',$noPO)
+                ->where('status_bbn_kelengkapan','=',0);
+            if ($trnKelengkapan->count() == 0) {
+                DB::table('po_mst')
+                    ->where('no_po','=',$noPO)
+                    ->update([
+                        'status_notice_kelengkapan' => 1,
                     ]);
             }
 

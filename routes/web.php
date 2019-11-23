@@ -97,13 +97,14 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('transaction/validasi-notice/baru','c_TransactionValidateNotice@add');
     Route::post('transaction/validasi-notice/submit','c_TransactionValidateNotice@submit');
 
-    Route::get('transaction/edit-kelengkapan-bbn','c_TransactionNoticeKelengkapan@index');
-    Route::get('transaction/edit-kelengkapan-bbn/list','c_TransactionNoticeKelengkapan@list');
-    Route::get('transaction/edit-kelengkapan-bbn/update-kelengkapan/{nopo}/{id}','c_TransactionNoticeKelengkapan@updateKelengkapan');
-    Route::get('transaction/edit-kelengkapan-bbn/validasi/{nopo}','c_TransactionNoticeKelengkapan@validasi');
-    Route::post('transaction/edit-kelengkapan-bbn/daftar-validasi','c_TransactionNoticeKelengkapan@daftarValidasi');
-    Route::get('transaction/edit-kelengkapan-bbn/baru','c_TransactionNoticeKelengkapan@add');
-    Route::post('transaction/edit-kelengkapan-bbn/submit','c_TransactionNoticeKelengkapan@submit');
+    Route::get('transaction/update-kelengkapan-bbn','c_TransactionNoticeKelengkapan@index');
+    Route::get('transaction/update-kelengkapan-bbn/list','c_TransactionNoticeKelengkapan@list');
+    Route::get('transaction/update-kelengkapan-bbn/update-kelengkapan/{nopo}/{id}','c_TransactionNoticeKelengkapan@updateKelengkapan');
+    Route::get('transaction/update-kelengkapan-bbn/validasi/{nopo}','c_TransactionNoticeKelengkapan@validasi');
+    Route::get('transaction/update-kelengkapan-bbn/check-total-data','c_TransactionNoticeKelengkapan@checkTotalData');
+    Route::post('transaction/update-kelengkapan-bbn/daftar-validasi','c_TransactionNoticeKelengkapan@daftarValidasi');
+    Route::get('transaction/update-kelengkapan-bbn/baru','c_TransactionNoticeKelengkapan@add');
+    Route::post('transaction/update-kelengkapan-bbn/submit','c_TransactionNoticeKelengkapan@submit');
 
     Route::get('transaction/stnk-dari-samsat','c_TransactionStnkSamsat@index');
     Route::get('transaction/stnk-dari-samsat/list','c_TransactionStnkSamsat@list');

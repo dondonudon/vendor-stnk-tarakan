@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionNoticeKelengkapan.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionNoticeKelengkapan.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionValidateNotice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionValidateNotice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice-kelengkapan/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice-kelengkapan/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice-kelengkapan/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice-kelengkapan/validasi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -193,6 +196,8 @@
       <workItem from="1574300552380" duration="22054000" />
       <workItem from="1574386864630" duration="10572000" />
       <workItem from="1574378936738" duration="6784000" />
+      <workItem from="1574472978346" duration="447000" />
+      <workItem from="1574475191143" duration="4855000" />
     </task>
     <servers />
   </component>
@@ -204,7 +209,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

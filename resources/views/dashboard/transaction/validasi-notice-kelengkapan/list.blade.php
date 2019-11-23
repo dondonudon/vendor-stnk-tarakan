@@ -1,6 +1,6 @@
 @extends('dashboard.layout')
 
-@section('title','Transaction - Validasi Kelengkapan BBn')
+@section('title','Transaction - Update Kelengkapan Notice BBN')
 
 @section('content')
     <div class="section-body">
@@ -8,7 +8,7 @@
             <div class="col-12 col-md-6 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Daftar PO BBn Belum Lengkap</h4>
+                        <h4>Daftar PO Belum Validasi Kelengkapan</h4>
                     </div>
                     <div class="card-body">
                         <table id="listTable" class="table table-striped table-bordered display nowrap" style="width: 100%">
@@ -53,7 +53,7 @@
             let listTable = $('#listTable').DataTable({
                 scrollX: true,
                 ajax: {
-                    url: '{{ url('transaction/validasi-kelengkapan-bbn/list') }}'
+                    url: '{{ url('transaction/update-kelengkapan-bbn/list') }}'
                 },
                 columns: [
                     {data: 'no_po'},
@@ -102,7 +102,7 @@
 
             btnValidasi.click(function (e) {
                 e.preventDefault();
-                window.location = '{{ url('transaction/validasi-kelengkapan-bbn/validasi') }}/'+dataID;
+                window.location = '{{ url('transaction/update-kelengkapan-bbn/validasi') }}/'+dataID;
             })
         });
     </script>
