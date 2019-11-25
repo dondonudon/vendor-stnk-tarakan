@@ -15,20 +15,20 @@
                         <input type="hidden" name="id" value="{{ $data->id }}">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Nama Dealer</label>
-                                <input name="nama" type="text" class="form-control" value="{{ $data->nama }}">
+                                <label>Tipe Kendaraan</label>
+                                <input name="nama" type="text" class="form-control" value="{{ $data->kode_kendaraan }}">
                             </div>
                             <div class="form-group">
-                                <label>Provinsi</label>
-                                <input name="provinsi" type="text" class="form-control" value="{{ $data->provinsi }}">
+                                <label>Harga</label>
+                                <input name="provinsi" type="text" class="form-control" value="{{ $data->harga }}">
                             </div>
                             <div class="form-group">
-                                <label>Kota</label>
-                                <input name="kota" type="text" class="form-control" value="{{ $data->kota }}">
+                                <label>PNBP</label>
+                                <input name="kota" type="text" class="form-control" value="{{ $data->pnbp }}">
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label>
-                                <input name="alamat" type="text" class="form-control" value="{{ $data->alamat }}">
+                                <label>PPH</label>
+                                <input name="alamat" type="text" class="form-control" value="{{ $data->pph }}">
                             </div>
                         </div>
                         <div class="card-footer bg-whitesmoke">
