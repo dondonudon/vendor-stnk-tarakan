@@ -6,7 +6,11 @@ use App\msDealer;
 use App\msHarga;
 use App\msKendaraan;
 use App\msSamsat;
+use App\poBpkbDealer;
+use App\poBpkbSamsat;
 use App\poMst;
+use App\poStnkDealer;
+use App\poStnkSamsat;
 use App\poTrn;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -108,6 +112,26 @@ class c_TransactionPurchaseOrder extends Controller
                 $trn->nama_stnk = $t['nama_stnk'];
                 $trn->keterangan = '';
                 $trn->save();
+
+                $stnkSamsat = new poStnkSamsat();
+                $stnkSamsat->no_po = $data['mst']['no_po'];
+                $stnkSamsat->id_trn = $trn->id;
+                $stnkSamsat->save();
+
+                $stnkDealer = new poStnkDealer();
+                $stnkDealer->no_po = $data['mst']['no_po'];
+                $stnkDealer->id_trn = $trn->id;
+                $stnkDealer->save();
+
+                $bpkbSamsat = new poBpkbSamsat();
+                $bpkbSamsat->no_po = $data['mst']['no_po'];
+                $bpkbSamsat->id_trn = $trn->id;
+                $bpkbSamsat->save();
+
+                $bpkbDealer = new poBpkbDealer();
+                $bpkbDealer->no_po = $data['mst']['no_po'];
+                $bpkbDealer->id_trn = $trn->id;
+                $bpkbDealer->save();
             }
 
             DB::commit();

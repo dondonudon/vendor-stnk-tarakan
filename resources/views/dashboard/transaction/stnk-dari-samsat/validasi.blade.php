@@ -71,8 +71,8 @@
                                     <th>Nama STNK</th>
                                     <th>Tipe Kendaraan</th>
                                     <th>No Pol</th>
-                                    <th>Status Kelengkapan</th>
-                                    <th>Info Kelengkapan</th>
+                                    <th>Status</th>
+                                    <th>Keterangan</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -80,7 +80,7 @@
                         <div class="card-footer bg-whitesmoke">
                             <div class="row justify-content-end">
                                 <div class="col-sm-12 col-lg-2 mt-2 mb-lg-0">
-                                    <button type="button" class="btn btn-block btn-outline-danger" onclick="window.location = '{{ url('transaction/validasi-notice') }}'">
+                                    <button type="button" class="btn btn-block btn-outline-danger" onclick="window.location = '{{ url('transaction/stnk-dari-samsat') }}'">
                                         <i class="fas fa-arrow-left mr-2"></i>Kembali
                                     </button>
                                 </div>
@@ -127,14 +127,14 @@
                         </table>
                         <hr>
                         <div class="form-group">
-                            <label>Validasi STNK dari SAMSAT</label>
-                            <select class="form-control" name="status_kelengkapan">
+                            <label for="status">Validasi STNK dari SAMSAT</label>
+                            <select class="form-control" name="status" id="status">
                                 <option value="1">Sudah diterima</option>
                                 <option value="0" selected>Belum Diterima</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="noPOL">Keterangan</label>
+                            <label for="infoKelengkapan">Keterangan</label>
                             <input type="text" class="form-control" name="info_kelengkapan" id="infoKelengkapan">
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                 data = {no_po: noPO, saved: JSON.stringify(saved)};
             }
             $.ajax({
-                url: '{{ url('transaction/update-kelengkapan-bbn/daftar-validasi') }}',
+                url: '{{ url('transaction/stnk-dari-samsat/daftar-validasi') }}',
                 method: 'post',
                 data: data,
                 success: function (response) {
@@ -174,7 +174,7 @@
 
         function checkTotalData(nomorPO) {
             $.ajax({
-                url: '{{ url('transaction/update-kelengkapan-bbn/check-total-data') }}',
+                url: '{{ url('transaction/stnk-dari-samsat/check-total-data') }}',
                 method: 'get',
                 data: {no_po: nomorPO},
                 success: function (response) {
@@ -184,7 +184,7 @@
                             title: 'Seluruh Kendaraan telah divalidasi',
                             text: 'Kendaraan pada nomor PO '+noPO+' telah selesai divalidasi. Anda akan kembali ke halaman utama Validasi Notice',
                             onClose: function () {
-                                window.location = '{{ url('transaction/update-kelengkapan-bbn') }}';
+                                window.location = '{{ url('transaction/stnk-dari-samsat') }}';
                             }
                         });
                     }
@@ -223,12 +223,12 @@
                 {data: 'tipe_kendaraan'},
                 {data: 'no_pol'},
                 {
-                    data: 'status_bbn_kelengkapan',
+                    data: 'status',
                     render: function (data) {
                         return (data === '1') ? 'Lengkap' : 'Belum lengkap';
                     }
                 },
-                {data: 'info_kelengkapan'},
+                {data: 'catatan'},
             ]
         });
 
@@ -253,7 +253,7 @@
                     selected.addClass('selected');
 
                     let data = daftarKendaraan.row('.selected').data();
-                    infoKelengkapan.val(data.info_kelengkapan);
+                    infoKelengkapan.val(data.catatan);
                 }
 
             });
@@ -279,8 +279,8 @@
                         'nama_stnk': kendaraan.nama_stnk,
                         'tipe_kendaraan': kendaraan.kode_kendaraan,
                         'no_pol': kendaraan.no_pol,
-                        'status_bbn_kelengkapan': data.status_kelengkapan,
-                        'info_kelengkapan': data.info_kelengkapan,
+                        'status': data.status_kelengkapan,
+                        'catatan': data.info_kelengkapan,
                     }).draw();
 
                     $(this).find('input[type=text], textarea').val('');
@@ -326,7 +326,7 @@
                     };
                     console.log(data);
                     $.ajax({
-                        url: '{{ url('transaction/update-kelengkapan-bbn/submit') }}',
+                        url: '{{ url('transaction/stnk-dari-samsat/submit') }}',
                         method: 'post',
                         data: {data: JSON.stringify(data)},
                         success: function (response) {
@@ -335,7 +335,7 @@
                                     icon: 'success',
                                     title: 'Data Tersimpan',
                                     onClose: function () {
-                                        window.location = '{{ url('transaction/update-kelengkapan-bbn') }}'
+                                        window.location = '{{ url('transaction/stnk-dari-samsat') }}'
                                     }
                                 });
                             } else {

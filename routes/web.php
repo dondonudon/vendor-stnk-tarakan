@@ -108,27 +108,33 @@ Route::middleware(['check.login','menupermission'])->group(function () {
 
     Route::get('transaction/stnk-dari-samsat','c_TransactionStnkSamsat@index');
     Route::get('transaction/stnk-dari-samsat/list','c_TransactionStnkSamsat@list');
-    Route::get('transaction/stnk-dari-samsat/update-kelengkapan/{nopo}/{id}','c_TransactionNoticeKelengkapan@updateKelengkapan');
+    Route::get('transaction/stnk-dari-samsat/update-kelengkapan/{nopo}/{id}','c_TransactionStnkSamsat@updateKelengkapan');
     Route::get('transaction/stnk-dari-samsat/validasi/{nopo}','c_TransactionStnkSamsat@validasi');
-    Route::get('transaction/stnk-dari-samsat/check-total-data','c_TransactionNoticeKelengkapan@checkTotalData');
+    Route::get('transaction/stnk-dari-samsat/check-total-data','c_TransactionStnkSamsat@checkTotalData');
     Route::post('transaction/stnk-dari-samsat/daftar-validasi','c_TransactionStnkSamsat@daftarValidasi');
     Route::post('transaction/stnk-dari-samsat/submit','c_TransactionStnkSamsat@submit');
 
     Route::get('transaction/stnk-ke-dealer','c_TransactionStnkDealer@index');
     Route::get('transaction/stnk-ke-dealer/list','c_TransactionStnkDealer@list');
+    Route::get('transaction/stnk-ke-dealer/update-kelengkapan/{nopo}/{id}','c_TransactionStnkDealer@updateKelengkapan');
     Route::get('transaction/stnk-ke-dealer/validasi/{nopo}','c_TransactionStnkDealer@validasi');
+    Route::get('transaction/stnk-ke-dealer/check-total-data','c_TransactionStnkDealer@checkTotalData');
     Route::post('transaction/stnk-ke-dealer/daftar-validasi','c_TransactionStnkDealer@daftarValidasi');
     Route::post('transaction/stnk-ke-dealer/submit','c_TransactionStnkDealer@submit');
 
     Route::get('transaction/bpkb-dari-samsat','c_TransactionBpkbSamsat@index');
     Route::get('transaction/bpkb-dari-samsat/list','c_TransactionBpkbSamsat@list');
+    Route::get('transaction/bpkb-dari-samsat/update-kelengkapan/{nopo}/{id}','c_TransactionBpkbSamsat@updateKelengkapan');
     Route::get('transaction/bpkb-dari-samsat/validasi/{nopo}','c_TransactionBpkbSamsat@validasi');
+    Route::get('transaction/bpkb-dari-samsat/check-total-data','c_TransactionBpkbSamsat@checkTotalData');
     Route::post('transaction/bpkb-dari-samsat/daftar-validasi','c_TransactionBpkbSamsat@daftarValidasi');
     Route::post('transaction/bpkb-dari-samsat/submit','c_TransactionBpkbSamsat@submit');
 
     Route::get('transaction/bpkb-ke-dealer','c_TransactionBpkbDealer@index');
     Route::get('transaction/bpkb-ke-dealer/list','c_TransactionBpkbDealer@list');
+    Route::get('transaction/bpkb-ke-dealer/update-kelengkapan/{nopo}/{id}','c_TransactionBpkbDealer@updateKelengkapan');
     Route::get('transaction/bpkb-ke-dealer/validasi/{nopo}','c_TransactionBpkbDealer@validasi');
+    Route::get('transaction/bpkb-ke-dealer/check-total-data','c_TransactionBpkbDealer@checkTotalData');
     Route::post('transaction/bpkb-ke-dealer/daftar-validasi','c_TransactionBpkbDealer@daftarValidasi');
     Route::post('transaction/bpkb-ke-dealer/submit','c_TransactionBpkbDealer@submit');
 });

@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbDealer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbDealer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbSamsat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbSamsat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkDealer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkDealer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkSamsat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkSamsat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-dari-samsat/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-dari-samsat/validasi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/validasi.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-dari-samsat/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-dari-samsat/validasi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/validasi.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -197,7 +204,7 @@
       <workItem from="1574472978346" duration="447000" />
       <workItem from="1574475191143" duration="6234000" />
       <workItem from="1574552585934" duration="126000" />
-      <workItem from="1574644907461" duration="951000" />
+      <workItem from="1574644907461" duration="12550000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>

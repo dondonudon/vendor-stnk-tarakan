@@ -13,7 +13,7 @@ class c_TransactionBpkbDealer extends Controller
 
     public function validasi($nopo) {
         $mst = DB::table('po_mst')
-            ->select('no_po','tgl_po','ms_dealer.nama as dealer','ms_samsat.nama as samsat','wilayah_provinsi.name as provinsi','wilayah_kota.name as kota','total','users.name as user','po_mst.keterangan','po_mst.created_at')
+            ->select('no_po','tgl_po','id_dealer','id_samsat','ms_dealer.nama as dealer','ms_samsat.nama as samsat','wilayah_provinsi.name as provinsi','wilayah_kota.name as kota','total','users.name as user','po_mst.keterangan','po_mst.created_at')
             ->join('ms_dealer','po_mst.id_dealer','=','ms_dealer.id')
             ->join('ms_samsat','po_mst.id_samsat','=','ms_samsat.id')
             ->join('wilayah_provinsi','po_mst.provinsi','=','wilayah_provinsi.id')
@@ -29,12 +29,23 @@ class c_TransactionBpkbDealer extends Controller
         }
     }
 
+    public function checkTotalData(Request $request) {
+        $trn = DB::table('po_trns')
+            ->where('status_bpkb_dealer','=',0)
+            ->where('no_po','=',$request->no_po)
+            ->get();
+        if ($trn->count() == 0) {
+            return 'failed';
+        } else {
+            return 'success';
+        }
+    }
+
     public function daftarValidasi(Request $request) {
         $trn = DB::table('po_trns')
             ->where('no_po','=',$request->no_po)
             ->where('status_bpkb_dealer','=',0)
             ->get();
-
         return $trn;
     }
 
@@ -52,29 +63,36 @@ class c_TransactionBpkbDealer extends Controller
     }
 
     public function submit(Request $request) {
-        $noPO = $request->no_po;
-        $data = $request->data;
+        $data = json_decode($request->data, true);
+        $noPO = $data['no_po'];
+        $kendaraan = $data['data'];
 
         try {
             DB::beginTransaction();
 
-            foreach ($data as $d) {
-                DB::table('po_trns')
-                    ->where('id','=',$d['id'])
+            foreach ($kendaraan as $k) {
+                $trn = DB::table('po_trns')
+                    ->where('id','=',$k['id'])
                     ->update([
-                        'status_bpkb_dealer' => 1
+                        'status_bpkb_dealer' => $k['status'],
+                    ]);
+
+                DB::table('po_bpkb_dealer')
+                    ->where('id_trn','=',$k['id'])
+                    ->update([
+                        'status' => $k['status'],
+                        'catatan' => $k['catatan'],
                     ]);
             }
 
-            $trn = DB::table('po_trns')
+            $trnKelengkapan = DB::table('po_trns')
                 ->where('no_po','=',$noPO)
-                ->where('status_bpkb_dealer','=',0)
-                ->get();
-            if ($trn->count() == 0) {
+                ->where('status_bpkb_dealer','=',0);
+            if ($trnKelengkapan->count() == 0) {
                 DB::table('po_mst')
                     ->where('no_po','=',$noPO)
                     ->update([
-                        'status_bpkb_dealer' => 1
+                        'status_bpkb_dealer' => 1,
                     ]);
             }
 

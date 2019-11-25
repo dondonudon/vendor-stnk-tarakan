@@ -39,7 +39,9 @@ class c_TransactionStnkSamsat extends Controller
 
     public function daftarValidasi(Request $request) {
         $trn = DB::table('po_trns')
-            ->where('no_po','=',$request->no_po)
+            ->select('po_trns.id','no_mesin','nama_stnk','kode_kendaraan','no_pol','status','catatan')
+            ->leftJoin('po_stnk_samsat','po_trns.id','=','po_stnk_samsat.id_trn')
+            ->where('po_trns.no_po','=',$request->no_po)
             ->where('status_stnk_samsat','=',0)
             ->get();
 
@@ -60,29 +62,36 @@ class c_TransactionStnkSamsat extends Controller
     }
 
     public function submit(Request $request) {
-        $noPO = $request->no_po;
-        $data = $request->data;
+        $data = json_decode($request->data, true);
+        $noPO = $data['no_po'];
+        $kendaraan = $data['data'];
 
         try {
             DB::beginTransaction();
 
-            foreach ($data as $d) {
-                DB::table('po_trns')
-                    ->where('id','=',$d['id'])
+            foreach ($kendaraan as $k) {
+                $trn = DB::table('po_trns')
+                    ->where('id','=',$k['id'])
                     ->update([
-                        'status_stnk_samsat' => 1
+                        'status_stnk_samsat' => $k['status'],
+                    ]);
+
+                DB::table('po_stnk_samsat')
+                    ->where('id_trn','=',$k['id'])
+                    ->update([
+                        'status' => $k['status'],
+                        'catatan' => $k['catatan'],
                     ]);
             }
 
-            $trn = DB::table('po_trns')
+            $trnKelengkapan = DB::table('po_trns')
                 ->where('no_po','=',$noPO)
-                ->where('status_stnk_samsat','=',0)
-                ->get();
-            if ($trn->count() == 0) {
+                ->where('status_stnk_samsat','=',0);
+            if ($trnKelengkapan->count() == 0) {
                 DB::table('po_mst')
                     ->where('no_po','=',$noPO)
                     ->update([
-                        'status_stnk_samsat' => 1
+                        'status_stnk_samsat' => 1,
                     ]);
             }
 
