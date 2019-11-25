@@ -51,19 +51,15 @@
                                     </div>
                                 </div>
                             </form>
+{{--                            <hr>--}}
 {{--                            <div class="text-center mt-4 mb-3">--}}
 {{--                                <div class="text-job text-muted">Login With Social</div>--}}
 {{--                            </div>--}}
-{{--                            <div class="row sm-gutters">--}}
-{{--                                <div class="col-6">--}}
-{{--                                    <a class="btn btn-block btn-social">--}}
-{{--                                        <span class="fab fa-facebook"></span> Facebook--}}
-{{--                                    </a>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-6">--}}
-{{--                                    <a class="btn btn-block btn-social btn-twitter">--}}
-{{--                                        <span class="fab fa-twitter"></span> Twitter--}}
-{{--                                    </a>--}}
+{{--                            <div class="row justify-content-center">--}}
+{{--                                <div class="col-lg-6 col-sm-12">--}}
+{{--                                    <button class="btn btn-danger btn-block">--}}
+{{--                                        <i class="fab fa-google mr-3"></i> Google--}}
+{{--                                    </button>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
 
