@@ -108,7 +108,9 @@ Route::middleware(['check.login','menupermission'])->group(function () {
 
     Route::get('transaction/stnk-dari-samsat','c_TransactionStnkSamsat@index');
     Route::get('transaction/stnk-dari-samsat/list','c_TransactionStnkSamsat@list');
+    Route::get('transaction/stnk-dari-samsat/update-kelengkapan/{nopo}/{id}','c_TransactionNoticeKelengkapan@updateKelengkapan');
     Route::get('transaction/stnk-dari-samsat/validasi/{nopo}','c_TransactionStnkSamsat@validasi');
+    Route::get('transaction/stnk-dari-samsat/check-total-data','c_TransactionNoticeKelengkapan@checkTotalData');
     Route::post('transaction/stnk-dari-samsat/daftar-validasi','c_TransactionStnkSamsat@daftarValidasi');
     Route::post('transaction/stnk-dari-samsat/submit','c_TransactionStnkSamsat@submit');
 
