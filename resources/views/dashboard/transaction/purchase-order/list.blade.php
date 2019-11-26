@@ -77,7 +77,7 @@
                     <div class="card-footer bg-whitesmoke">
                         <div class="row justify-content-end">
                             <div class="col-sm-12 col-lg-2 mt-2 mt-lg-0">
-                                <button type="button" id="btnDetail" class="btn btn-block btn-outline-info" disabled>
+                                <button type="button" id="btnCetak" class="btn btn-block btn-outline-info" disabled>
                                     <i class="fas fa-print mr-2"></i>CETAK
                                 </button>
                             </div>

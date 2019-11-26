@@ -203,11 +203,12 @@
         function reloadDaftar(saved) {
             daftarKendaraan.clear().draw();
             let data;
-            if (saved.length === 0) {
+            if (saved.data().length === 0) {
                 data = {no_po: noPO};
             } else {
                 data = {no_po: noPO, saved: JSON.stringify(saved)};
             }
+            // console.log(saved.data().length);
             $.ajax({
                 url: '{{ url('transaction/validasi-notice/daftar-validasi') }}',
                 method: 'post',
