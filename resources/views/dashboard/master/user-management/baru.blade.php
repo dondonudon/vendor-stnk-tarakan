@@ -34,23 +34,25 @@ $menu = \App\Http\Controllers\c_Dashboard::sidebar();
                             <hr>
                             <h5>Permission</h5>
                             @foreach($menu as $g)
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <h6 class="ml-5">{{ $g['group']['name'] }}</h6>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <div class="row">
-                                            @foreach($g['menu'] as $m)
-                                                <div class="col-lg-4">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" name="permission[]" class="custom-control-input" id="permission_{{ $m['id'] }}" value="{{ $m['id'] }}">
-                                                        <label class="custom-control-label" for="permission_{{ $m['id'] }}">{{ $m['name'] }}</label>
+                                @if($g['group']['status'] !== 1)
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <h6 class="ml-5">{{ $g['group']['name'] }}</h6>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="row">
+                                                @foreach($g['menu'] as $m)
+                                                    <div class="col-lg-4">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="permission[]" class="custom-control-input" id="permission_{{ $m['id'] }}" value="{{ $m['id'] }}">
+                                                            <label class="custom-control-label" for="permission_{{ $m['id'] }}">{{ $m['name'] }}</label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @endforeach
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endforeach
                         </div>
                         <div class="card-footer bg-whitesmoke">

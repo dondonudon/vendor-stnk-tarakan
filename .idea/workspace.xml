@@ -4,8 +4,8 @@
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice/validasi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/user-management/baru.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/user-management/baru.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/user-management/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/user-management/edit.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +198,7 @@
       <workItem from="1574475191143" duration="6234000" />
       <workItem from="1574552585934" duration="126000" />
       <workItem from="1574644907461" duration="16598000" />
-      <workItem from="1574731360501" duration="10220000" />
+      <workItem from="1574731360501" duration="13486000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
