@@ -18,8 +18,9 @@ class c_MasterHarga extends Controller
     }
 
     public function edit($id) {
+        $kendaraan = DB::table('ms_kendaraan')->select('kode','nama')->get();
         $data = DB::table('ms_harga')->where('id','=',$id)->first();
-        return view('dashboard.master.harga.edit')->with('data',$data);
+        return view('dashboard.master.harga.edit')->with('data',$data)->with('kendaraan',$kendaraan);
     }
 
     public function list() {

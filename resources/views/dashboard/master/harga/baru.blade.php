@@ -14,24 +14,24 @@
                         <input type="hidden" name="type" value="baru">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Kode Kendaraan</label>
-                                <select class="form-control" name="kode_kendaraan">
+                                <label for="kodeKendaraan">Tipe Kendaraan</label>
+                                <select id="kodeKendaraan" class="form-control" name="kode_kendaraan">
                                     @foreach($data as $d)
-                                        <option value="{{ $d->kode }}">{{ $d->nama }}</option>
+                                        <option value="{{ $d->kode }}">{{ $d->kode.' - '.$d->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Harga Notice BBn</label>
-                                <input name="harga" type="text" class="form-control">
+                                <label for="iHarga">Harga Notice BBn</label>
+                                <input id="iHarga" name="harga" type="text" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>PNBP</label>
-                                <input name="pnbp" type="text" class="form-control">
+                                <label for="iPnbp">PNBP</label>
+                                <input id="iPnbp" name="pnbp" type="text" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>PPH</label>
-                                <input name="pph" type="text" class="form-control">
+                                <label for="iPph">PPH</label>
+                                <input id="iPph" name="pph" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="card-footer bg-whitesmoke">
@@ -51,6 +51,18 @@
 @section('script')
     <script type="text/javascript">
         let formData = $('#formData');
+        let iHargaNotice = new Cleave('#iHarga', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
+        let iPnbp = new Cleave('#iPnbp', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
+        let iPph = new Cleave('#iPph', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
 
         $(document).ready(function () {
             $('#listTable').DataTable({

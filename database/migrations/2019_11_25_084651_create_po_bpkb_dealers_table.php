@@ -18,6 +18,7 @@ class CreatePoBpkbDealersTable extends Migration
             $table->string('no_po',25);
             $table->integer('id_trn');
             $table->integer('status')->default(0);
+            $table->date('tgl_validasi');
             $table->text('catatan')->nullable();
             $table->timestamps();
         });

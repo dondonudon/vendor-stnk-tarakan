@@ -15,20 +15,24 @@
                         <input type="hidden" name="id" value="{{ $data->id }}">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Tipe Kendaraan</label>
-                                <input name="nama" type="text" class="form-control" value="{{ $data->kode_kendaraan }}">
+                                <label for="iTipeKendaraan">Tipe Kendaraan</label>
+                                <select id="iTipeKendaraan" class="form-control" name="kode_kendaraan">
+                                    @foreach($kendaraan as $k)
+                                        <option value="{{ $k->kode }}">{{ $k->kode.' - '.$k->nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label>Harga</label>
-                                <input name="provinsi" type="text" class="form-control" value="{{ $data->harga }}">
+                                <label for="iHarga">Harga Notice BBn</label>
+                                <input id="iHarga" name="harga" type="text" class="form-control" value="{{ $data->harga }}">
                             </div>
                             <div class="form-group">
-                                <label>PNBP</label>
-                                <input name="kota" type="text" class="form-control" value="{{ $data->pnbp }}">
+                                <label for="iPnbp">PNBP</label>
+                                <input id="iPnbp" name="pnbp" type="text" class="form-control" value="{{ $data->pnbp }}">
                             </div>
                             <div class="form-group">
-                                <label>PPH</label>
-                                <input name="alamat" type="text" class="form-control" value="{{ $data->pph }}">
+                                <label for="iPph">PPH</label>
+                                <input id="iPph" name="pph" type="text" class="form-control" value="{{ $data->pph }}">
                             </div>
                         </div>
                         <div class="card-footer bg-whitesmoke">
@@ -55,8 +59,23 @@
 @section('script')
     <script type="text/javascript">
         let formData = $('#formData');
+        let iTipeKendaraan = $('#iTipeKendaraan');
+        let iHargaNotice = new Cleave('#iHarga', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
+        let iPnbp = new Cleave('#iPnbp', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
+        let iPph = new Cleave('#iPph', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
 
         $(document).ready(function () {
+            iTipeKendaraan.val('{{ $data->kode_kendaraan }}');
+
             $('#listTable').DataTable({
                 responsive: true
             });

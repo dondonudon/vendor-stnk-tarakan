@@ -29,6 +29,7 @@ mix
         'node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js',
         'node_modules/sweetalert2/dist/sweetalert2.js',
         'node_modules/numeral/src/numeral.js',
+        'node_modules/cleave.js/dist/cleave.js',
         'node_modules/select2/dist/js/select2.js',
     ], 'public/plugin.js')
     .styles([
