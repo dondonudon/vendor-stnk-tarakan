@@ -17,13 +17,27 @@
                                 <label>Nama Dealer</label>
                                 <input name="nama" type="text" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <label>Provinsi</label>
-                                <input name="provinsi" type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Kota</label>
-                                <input name="kota" type="text" class="form-control">
+{{--                            <div class="form-group">--}}
+{{--                                <label>Provinsi</label>--}}
+{{--                                <input name="provinsi" type="text" class="form-control">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>Kota</label>--}}
+{{--                                <input name="kota" type="text" class="form-control">--}}
+{{--                            </div>--}}
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Provinsi</label>
+                                        <select id="iProvinsi" name="provinsi" style="width: 100%" required></select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Kota</label>
+                                        <select id="iKota" name="kota" style="width: 100%" required></select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
@@ -43,7 +57,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga Jasa</label>
-                                <input name="harga_jasa" type="text" class="form-control">
+                                <input id="iHargaJasa" name="harga_jasa" type="text" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
@@ -67,10 +81,40 @@
 @section('script')
     <script type="text/javascript">
         let formData = $('#formData');
+        let iProvinsi = $('#iProvinsi');
+        let iKota = $('#iKota');
+        let iHargaJasa = new Cleave('#iHargaJasa', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
 
         $(document).ready(function () {
             $('#listTable').DataTable({
                 responsive: true
+            });
+
+            iProvinsi.select2({
+                ajax: {
+                    url: '{{ url('data/wilayah-provinsi') }}',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            search: params.term,
+                        }
+                    }
+                }
+            });
+            iKota.select2({
+                ajax: {
+                    url: '{{ url('data/wilayah-kota') }}',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            provinsi: iProvinsi.val(),
+                            search: params.term,
+                        }
+                    }
+                }
             });
 
             formData.submit(function (e) {

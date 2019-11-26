@@ -31,9 +31,9 @@ class c_MasterHarga extends Controller
     public function submit(Request $request) {
         $type = $request->type;
         $kodeKendaraan = $request->kode_kendaraan;
-        $harga = $request->harga;
-        $pnbp = $request->pnbp;
-        $pph = $request->pph;
+        $harga = str_replace(',','',$request->harga);
+        $pnbp = str_replace(',','',$request->pnbp);
+        $pph = str_replace(',','',$request->pph);
 
         try {
             DB::beginTransaction();

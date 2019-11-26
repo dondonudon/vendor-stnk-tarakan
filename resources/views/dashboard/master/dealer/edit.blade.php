@@ -18,14 +18,32 @@
                                 <label>Nama Dealer</label>
                                 <input name="nama" type="text" class="form-control" value="{{ $data->nama }}">
                             </div>
-                            <div class="form-group">
-                                <label>Provinsi</label>
-                                <input name="provinsi" type="text" class="form-control" value="{{ $data->provinsi }}">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Provinsi</label>
+                                        <select id="iProvinsi" name="provinsi" style="width: 100%" required>
+                                            <option value="{{ $data->id_provinsi }}" selected="selected">{{ $data->provinsi }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Kota</label>
+                                        <select id="iKota" name="kota" style="width: 100%" required>
+                                            <option value="{{ $data->id_kota }}" selected="selected">{{ $data->kota }}</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Kota</label>
-                                <input name="kota" type="text" class="form-control" value="{{ $data->kota }}">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label>Provinsi</label>--}}
+{{--                                <input name="provinsi" type="text" class="form-control" value="{{ $data->provinsi }}">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label>Kota</label>--}}
+{{--                                <input name="kota" type="text" class="form-control" value="{{ $data->kota }}">--}}
+{{--                            </div>--}}
                             <div class="form-group">
                                 <label>Alamat</label>
                                 <input name="alamat" type="text" class="form-control" value="{{ $data->alamat }}">
@@ -44,7 +62,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga Jasa</label>
-                                <input name="harga_jasa" type="text" class="form-control" value="{{ $data->harga_jasa }}">
+                                <input id="iHargaJasa" name="harga_jasa" type="text" class="form-control" value="{{ $data->harga_jasa }}">
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
@@ -75,8 +93,38 @@
 @section('script')
     <script type="text/javascript">
         let formData = $('#formData');
+        let iProvinsi = $('#iProvinsi');
+        let iKota = $('#iKota');
+        let iHargaJasa = new Cleave('#iHargaJasa', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand'
+        });
 
         $(document).ready(function () {
+            iProvinsi.select2({
+                ajax: {
+                    url: '{{ url('data/wilayah-provinsi') }}',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            search: params.term,
+                        }
+                    }
+                }
+            });
+            iKota.select2({
+                ajax: {
+                    url: '{{ url('data/wilayah-kota') }}',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            provinsi: iProvinsi.val(),
+                            search: params.term,
+                        }
+                    }
+                }
+            });
+
             $('#listTable').DataTable({
                 responsive: true
             });

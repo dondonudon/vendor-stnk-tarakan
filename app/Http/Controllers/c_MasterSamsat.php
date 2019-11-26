@@ -22,7 +22,11 @@ class c_MasterSamsat extends Controller
     }
 
     public function list() {
-        $data['data'] = msSamsat::all();
+        $data['data'] = DB::table('ms_samsat')
+            ->select('ms_samsat.id','ms_samsat.nama','wilayah_kota.name as kota','wilayah_provinsi.name as provinsi','alamat','ms_samsat.created_at','ms_samsat.updated_at')
+            ->join('wilayah_kota','ms_samsat.kota','=','wilayah_kota.id')
+            ->join('wilayah_provinsi','ms_samsat.provinsi','=','wilayah_provinsi.id')
+            ->get();
         return json_encode($data);
     }
 
