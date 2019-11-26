@@ -279,7 +279,7 @@
                         'nama_stnk': kendaraan.nama_stnk,
                         'tipe_kendaraan': kendaraan.kode_kendaraan,
                         'no_pol': kendaraan.no_pol,
-                        'status': data.status_kelengkapan,
+                        'status': data.status,
                         'catatan': data.info_kelengkapan,
                     }).draw();
 
