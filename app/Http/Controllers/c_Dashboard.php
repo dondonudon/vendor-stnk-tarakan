@@ -40,7 +40,7 @@ class c_Dashboard extends Controller
             }
         } else {
             $group = DB::table('sys_permissions')
-                ->select('sys_menu_groups.id','sys_menu_groups.name','sys_menu_groups.segment_name','sys_menu_groups.icon','sys_menu_groups.ord','sys_menu_groups.created_at','sys_menu_groups.updated_at')
+                ->select('sys_menu_groups.id','sys_menu_groups.name','sys_menu_groups.segment_name','sys_menu_groups.icon','sys_menu_groups.ord','sys_menu_groups.created_at','sys_menu_groups.status','sys_menu_groups.updated_at')
                 ->join('sys_menus','sys_permissions.id_menu','=','sys_menus.id')
                 ->join('sys_menu_groups','sys_menus.id_group','=','sys_menu_groups.id')
                 ->where('sys_permissions.username','=',$username)
@@ -50,7 +50,7 @@ class c_Dashboard extends Controller
                 ->get();
 
             $dtMenu = DB::table('sys_permissions')
-                ->select('sys_menus.id', 'sys_menus.id_group', 'sys_menus.name', 'sys_menus.segment_name', 'sys_menus.url', 'sys_menus.ord', 'sys_menus.created_at', 'sys_menus.updated_at')
+                ->select('sys_menus.id', 'sys_menus.id_group', 'sys_menus.name', 'sys_menus.segment_name', 'sys_menus.url', 'sys_menus.ord','sys_menus.status', 'sys_menus.created_at', 'sys_menus.updated_at')
                 ->join('sys_menus','sys_permissions.id_menu','=','sys_menus.id')
                 ->where('sys_permissions.username','=',$username)
                 ->where('sys_menus.status','<>',1)
