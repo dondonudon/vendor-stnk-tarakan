@@ -127,7 +127,7 @@
                         </table>
                         <hr>
                         <div class="form-group">
-                            <label for="statusKelengkapan">Validasi STNK dari SAMSAT</label>
+                            <label for="statusKelengkapan">Validasi BPKB ke DEALER</label>
                             <select class="form-control" name="status_kelengkapan" id="statusKelengkapan">
                                 <option value="1">Sudah diterima</option>
                                 <option value="0" selected>Belum Diterima</option>

@@ -153,9 +153,9 @@
                         </div>
                         <div class="form-group">
                             <label>Kelengkapan Berkas</label>
-                            <select class="form-control" name="status_kelengkapan">
+                            <select class="form-control" id="iStatusKelengkapan" name="status_kelengkapan">
+                                <option value="0" selected>Belum Lengkap</option>
                                 <option value="1">Lengkap</option>
-                                <option value="0">Belum Lengkap</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -341,6 +341,7 @@
                     }).draw();
 
                     $(this).find('input[type=text], textarea').val('');
+                    $('#iStatusKelengkapan').val(0);
                     modalInfoTambahan.modal('hide');
                 } else {
                     Swal.fire({
