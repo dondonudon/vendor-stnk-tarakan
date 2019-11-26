@@ -52,7 +52,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Daftar Validasi Terima STNK dari SAMSAT</h4>
+                        <h4>Daftar Validasi Terima BPKB ke SAMSAT</h4>
                         <div class="card-header-action">
                             <button class="btn btn-primary" data-toggle="modal" data-target="#infoTambahan">
                                 <i class="fas fa-plus"></i>
