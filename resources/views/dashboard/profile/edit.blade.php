@@ -24,18 +24,14 @@
                         </div>
                     </div>
                     <div class="profile-widget-description">
-                        <dl class="row">
-                            <dt class="col-sm-3">Username</dt>
-                            <dd class="col-sm-9">{{ $data->username }}</dd>
-                        </dl>
-                        <dl class="row">
-                            <dt class="col-sm-3">Nama</dt>
-                            <dd class="col-sm-9">{{ $data->name }}</dd>
-                        </dl>
-                        <dl class="row">
-                            <dt class="col-sm-3">Email</dt>
-                            <dd class="col-sm-9">{{ $data->email }}</dd>
-                        </dl>
+                        <table class="table table-striped table-borderless">
+                            <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Value</th>
+                            </tr>
+                            </thead>
+                        </table>
                     </div>
                     <div class="card-footer text-center">
                         <a href="{{ url('reset-password') }}" class="btn btn-warning">

@@ -51,6 +51,12 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('system-utility/menu/edit/{id}','c_SystemMenu@edit');
     Route::post('system-utility/menu/submit','c_SystemMenu@submit');
 
+    Route::get('system-utility/company-info','c_SystemProfile@index');
+    Route::get('system-utility/company-info/list','c_SystemProfile@list');
+    Route::get('system-utility/company-info/baru','c_SystemProfile@add');
+    Route::get('system-utility/company-info/edit/{id}','c_SystemProfile@edit');
+    Route::post('system-utility/company-info/submit','c_SystemProfile@submit');
+
     Route::get('master/user-management','c_MasterUserManagement@index');
     Route::get('master/user-management/list','c_MasterUserManagement@list');
     Route::get('master/user-management/baru','c_MasterUserManagement@add');

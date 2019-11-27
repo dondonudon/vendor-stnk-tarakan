@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-dari-samsat/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-dari-samsat/validasi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/validasi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/validasi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice/validasi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/profile/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +115,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/transaction/validasi-notice-kelengkapan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/system_utility/company-info" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -128,17 +126,17 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\group" />
-      <recent name="D:\Development\vendor-stnk-tarakan\public" />
-      <recent name="D:\Development\vendor-stnk-tarakan\public\assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\company-info" />
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\transaction\validasi-notice-kelengkapan" />
       <recent name="D:\Development\vendor-stnk-tarakan\public" />
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\transaction\bpkb-ke-dealer" />
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\transaction\bpkb-dari-samsat" />
-      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\transaction\stnk-ke-dealer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\group" />
+      <recent name="D:\Development\vendor-stnk-tarakan\public" />
+      <recent name="D:\Development\vendor-stnk-tarakan\public\assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -199,7 +197,8 @@
       <workItem from="1574475191143" duration="6234000" />
       <workItem from="1574552585934" duration="126000" />
       <workItem from="1574644907461" duration="16598000" />
-      <workItem from="1574731360501" duration="15718000" />
+      <workItem from="1574731360501" duration="16295000" />
+      <workItem from="1574799499376" duration="3472000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
