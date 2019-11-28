@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets/img/favicon/site.webmanifest') }}">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
@@ -13,10 +18,12 @@
 <div id="app">
     <section class="section">
         <div class="container mt-3">
-            <div class="row">
-                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+            <div class="row justify-content-center">
+{{--                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">--}}
+                <div class="col-12 col-sm-8 col-md-6 col-lg-6 col-xl-5">
                     <div class="login-brand">
-                        <img src="{{ asset('assets/img/responsive.svg') }}" alt="logo" width="100">
+                        <img src="{{ asset('assets/img/logo-lg.png') }}" alt="logo" width="100">
+                        <p class="mt-3">CV. {{ config('app.name') }}</p>
                     </div>
 
                     <div class="card card-primary">

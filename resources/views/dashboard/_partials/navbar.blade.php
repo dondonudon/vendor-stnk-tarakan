@@ -9,7 +9,8 @@
                 <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">Developer</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
+{{--                <div class="dropdown-title">Logged in 5 min ago</div>--}}
+                <div class="dropdown-title">Account</div>
                 <a href="{{ url('profile') }}" class="dropdown-item has-icon">
                     <i class="fas fa-user"></i> Profile
                 </a>
