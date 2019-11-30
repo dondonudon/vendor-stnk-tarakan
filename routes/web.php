@@ -11,7 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
@@ -151,13 +150,15 @@ Route::middleware(['check.login','menupermission'])->group(function () {
      * 3. EXPORT EXCEL
      * 4. EXPORT PDF
      */
+//    LAPORAN PER SAMSAT
     Route::get('laporan/bbn-per-samsat','c_LaporanBbnSamsat@index');
     Route::post('laporan/bbn-per-samsat/list','c_LaporanBbnSamsat@list');
     Route::get('laporan/bbn-per-samsat/export/excel','c_LaporanBbnSamsat@exportExcel');
     Route::get('laporan/bbn-per-samsat/export/pdf','c_LaporanBbnSamsat@exportPDF');
 
-    Route::get('laporan/bbn-per-periode','c_LaporanBbnSamsat@index');
-    Route::post('laporan/bbn-per-periode/list','c_LaporanBbnSamsat@list');
-    Route::get('laporan/bbn-per-periode/export/excel','c_LaporanBbnSamsat@exportExcel');
-    Route::get('laporan/bbn-per-periode/export/pdf','c_LaporanBbnSamsat@exportPDF');
+//    LAPORAN PER PERIODE
+    Route::get('laporan/bbn-per-periode','c_LaporanBbnPeriode@index');
+    Route::post('laporan/bbn-per-periode/list','c_LaporanBbnPeriode@list');
+    Route::get('laporan/bbn-per-periode/export/excel','c_LaporanBbnPeriode@exportExcel');
+    Route::get('laporan/bbn-per-periode/export/pdf','c_LaporanBbnPeriode@exportPDF');
 });
