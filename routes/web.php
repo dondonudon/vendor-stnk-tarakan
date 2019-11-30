@@ -159,6 +159,12 @@ Route::middleware(['check.login','menupermission'])->group(function () {
 //    LAPORAN PER PERIODE
     Route::get('laporan/bbn-per-periode','c_LaporanBbnPeriode@index');
     Route::post('laporan/bbn-per-periode/list','c_LaporanBbnPeriode@list');
-    Route::get('laporan/bbn-per-periode/export/excel','c_LaporanBbnPeriode@exportExcel');
-    Route::get('laporan/bbn-per-periode/export/pdf','c_LaporanBbnPeriode@exportPDF');
+    Route::get('laporan/bbn-per-periode/export/excel/{start}/{end}/{status}','c_LaporanBbnPeriode@exportExcel');
+    Route::get('laporan/bbn-per-periode/export/pdf/{start}/{end}/{status}','c_LaporanBbnPeriode@exportPDF');
+
+//    LAPORAN PER DEALER
+    Route::get('laporan/bbn-per-dealer','c_LaporanBbnDealer@index');
+    Route::post('laporan/bbn-per-dealer/list','c_LaporanBbnDealer@list');
+    Route::get('laporan/bbn-per-dealer/export/excel/{start}/{end}/{status}','c_LaporanBbnDealer@exportExcel');
+    Route::get('laporan/bbn-per-dealer/export/pdf/{start}/{end}/{status}','c_LaporanBbnDealer@exportPDF');
 });
