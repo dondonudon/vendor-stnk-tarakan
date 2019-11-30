@@ -143,4 +143,21 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('transaction/bpkb-ke-dealer/check-total-data','c_TransactionBpkbDealer@checkTotalData');
     Route::post('transaction/bpkb-ke-dealer/daftar-validasi','c_TransactionBpkbDealer@daftarValidasi');
     Route::post('transaction/bpkb-ke-dealer/submit','c_TransactionBpkbDealer@submit');
+
+    /*
+     * LAPORAN
+     * 1. INDEX
+     * 2. API LIST TABLE
+     * 3. EXPORT EXCEL
+     * 4. EXPORT PDF
+     */
+    Route::get('laporan/bbn-per-samsat','c_LaporanBbnSamsat@index');
+    Route::post('laporan/bbn-per-samsat/list','c_LaporanBbnSamsat@list');
+    Route::get('laporan/bbn-per-samsat/export/excel','c_LaporanBbnSamsat@exportExcel');
+    Route::get('laporan/bbn-per-samsat/export/pdf','c_LaporanBbnSamsat@exportPDF');
+
+    Route::get('laporan/bbn-per-periode','c_LaporanBbnSamsat@index');
+    Route::post('laporan/bbn-per-periode/list','c_LaporanBbnSamsat@list');
+    Route::get('laporan/bbn-per-periode/export/excel','c_LaporanBbnSamsat@exportExcel');
+    Route::get('laporan/bbn-per-periode/export/pdf','c_LaporanBbnSamsat@exportPDF');
 });

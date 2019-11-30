@@ -77,12 +77,12 @@
                     <div class="card-footer bg-whitesmoke">
                         <div class="row justify-content-end">
                             <div class="col-sm-12 col-lg-2 mt-2 mt-lg-0">
-                                <button type="button" id="btnCetak" class="btn btn-block btn-outline-info" disabled>
+                                <button type="button" id="btnCetak" class="btn btn-block btn-outline-info d-none">
                                     <i class="fas fa-print mr-2"></i>CETAK
                                 </button>
                             </div>
                             <div class="col-sm-12 col-lg-2 mt-2 mt-lg-0">
-                                <button type="button" id="btnDetail" class="btn btn-block btn-outline-info" disabled>
+                                <button type="button" id="btnDetail" class="btn btn-block btn-outline-info d-none">
                                     <i class="fas fa-file-alt mr-2"></i>DETAIL
                                 </button>
                             </div>
@@ -102,6 +102,7 @@
 @section('script')
     <script type="text/javascript">
         let btnDetail = $('#btnDetail');
+        let btnCetak = $('#btnCetak');
 
         let dataID;
 
@@ -148,13 +149,15 @@
             $('#listTable tbody').on('click','tr',function () {
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
-                    btnDetail.attr('disabled',true);
+                    btnDetail.addClass('d-none');
+                    btnCetak.addClass('d-none');
 
                     dataID = null;
                 } else {
                     listTable.$('tr.selected').removeClass('selected');
                     $(this).addClass('selected');
-                    btnDetail.removeAttr('disabled');
+                    btnDetail.removeClass('d-none');
+                    btnCetak.removeClass('d-none');
 
 
                     let data = listTable.row('.selected').data();
