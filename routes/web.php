@@ -165,6 +165,12 @@ Route::middleware(['check.login','menupermission'])->group(function () {
 //    LAPORAN PER DEALER
     Route::get('laporan/bbn-per-dealer','c_LaporanBbnDealer@index');
     Route::post('laporan/bbn-per-dealer/list','c_LaporanBbnDealer@list');
-    Route::get('laporan/bbn-per-dealer/export/excel/{start}/{end}/{status}','c_LaporanBbnDealer@exportExcel');
-    Route::get('laporan/bbn-per-dealer/export/pdf/{start}/{end}/{status}','c_LaporanBbnDealer@exportPDF');
+    Route::get('laporan/bbn-per-dealer/export/excel/{dealer}/{status}','c_LaporanBbnDealer@exportExcel');
+    Route::get('laporan/bbn-per-dealer/export/pdf/{dealer}/{status}','c_LaporanBbnDealer@exportPDF');
+
+//    REKAP TAGIHAN PER PO
+    Route::get('laporan/rekap-tagihan-per-po','c_LaporanBbnDealer@index');
+    Route::post('laporan/rekap-tagihan-per-po/list','c_LaporanBbnDealer@list');
+    Route::get('laporan/rekap-tagihan-per-po/export/excel/{dealer}/{status}','c_LaporanBbnDealer@exportExcel');
+    Route::get('laporan/rekap-tagihan-per-po/export/pdf/{dealer}/{status}','c_LaporanBbnDealer@exportPDF');
 });

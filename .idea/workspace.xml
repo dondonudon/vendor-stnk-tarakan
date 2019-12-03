@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-periode/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-periode/pdf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_LaporanBbnPeriode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_LaporanBbnPeriode.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +127,11 @@
   </component>
   <component name="ProjectId" id="1TEbjrUUWsFq1HRmQquHUW7vWLK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -141,7 +143,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -157,23 +159,23 @@
       <recent name="D:\Development\vendor-stnk-tarakan\public\assets" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -219,7 +221,11 @@
       <workItem from="1574799499376" duration="5100000" />
       <workItem from="1574887234431" duration="14656000" />
       <workItem from="1574991596716" duration="19534000" />
-      <workItem from="1575077547403" duration="10949000" />
+      <workItem from="1575077547403" duration="11637000" />
+      <workItem from="1575343705747" duration="342000" />
+      <workItem from="1575344378897" duration="604000" />
+      <workItem from="1575350464018" duration="98000" />
+      <workItem from="1575350620372" duration="6107000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
@@ -256,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575078546934</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Laporan BBN per PERIODE">
+      <created>1575093464095</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575093464095</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +293,17 @@
     <MESSAGE value="Pembenahan Menu Edit Harga" />
     <MESSAGE value="Update nama Perusahaan" />
     <MESSAGE value="Laporan BBN per SAMSAT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laporan BBN per SAMSAT" />
+    <MESSAGE value="Laporan BBN per PERIODE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Laporan BBN per PERIODE" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="301" y="72" key="SettingsEditor" timestamp="1575350577674">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1575350577674" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1575350630085">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1575350630085" />
   </component>
 </project>
