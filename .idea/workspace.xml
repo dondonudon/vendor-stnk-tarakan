@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_LaporanRekapTagihanPerPo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_LaporanRekapTagihanPerPo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +135,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-periode" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/report/rekap-tagihan-per-po" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -146,17 +146,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\report\bbn-per-periode" />
-      <recent name="D:\Development\vendor-stnk-tarakan\public" />
-      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\company-info" />
-      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\transaction\validasi-notice-kelengkapan" />
-      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\transaction\bpkb-ke-dealer" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\group" />
       <recent name="D:\Development\vendor-stnk-tarakan\public" />
       <recent name="D:\Development\vendor-stnk-tarakan\public\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\report\rekap-tagihan-per-po" />
+      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\report\bbn-per-periode" />
+      <recent name="D:\Development\vendor-stnk-tarakan\public" />
+      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\company-info" />
+      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\transaction\validasi-notice-kelengkapan" />
     </key>
   </component>
   <component name="RunManager">
@@ -225,7 +225,9 @@
       <workItem from="1575343705747" duration="342000" />
       <workItem from="1575344378897" duration="604000" />
       <workItem from="1575350464018" duration="98000" />
-      <workItem from="1575350620372" duration="6107000" />
+      <workItem from="1575350620372" duration="8169000" />
+      <workItem from="1575425266985" duration="10421000" />
+      <workItem from="1575509560851" duration="811000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
@@ -269,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575093464095</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Laporan BBN per DEALER">
+      <created>1575361317803</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575361317810</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,16 +303,29 @@
     <MESSAGE value="Update nama Perusahaan" />
     <MESSAGE value="Laporan BBN per SAMSAT" />
     <MESSAGE value="Laporan BBN per PERIODE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laporan BBN per PERIODE" />
+    <MESSAGE value="Laporan BBN per DEALER" />
+    <option name="LAST_COMMIT_MESSAGE" value="Laporan BBN per DEALER" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575426077557">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1575426077557" />
+    <state x="423" y="0" key="CommitChangelistDialog2" timestamp="1575361310174">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="423" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1575361310174" />
     <state x="301" y="72" key="SettingsEditor" timestamp="1575350577674">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1575350577674" />
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1575350630085">
+    <state x="392" y="158" key="Vcs.Push.Dialog.v2" timestamp="1575362655762">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1575350630085" />
+    <state x="392" y="158" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1575362655762" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1575509578733">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1575509578733" />
   </component>
 </project>

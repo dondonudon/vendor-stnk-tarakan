@@ -169,8 +169,15 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('laporan/bbn-per-dealer/export/pdf/{dealer}/{status}','c_LaporanBbnDealer@exportPDF');
 
 //    REKAP TAGIHAN PER PO
-    Route::get('laporan/rekap-tagihan-per-po','c_LaporanBbnDealer@index');
-    Route::post('laporan/rekap-tagihan-per-po/list','c_LaporanBbnDealer@list');
-    Route::get('laporan/rekap-tagihan-per-po/export/excel/{dealer}/{status}','c_LaporanBbnDealer@exportExcel');
-    Route::get('laporan/rekap-tagihan-per-po/export/pdf/{dealer}/{status}','c_LaporanBbnDealer@exportPDF');
+    Route::get('laporan/rekap-tagihan-per-po','c_LaporanRekapTagihanPerPo@index');
+    Route::post('laporan/rekap-tagihan-per-po/list','c_LaporanRekapTagihanPerPo@list');
+    Route::get('laporan/rekap-tagihan-per-po/po','c_LaporanRekapTagihanPerPo@po');
+    Route::get('laporan/rekap-tagihan-per-po/export/excel/{po}','c_LaporanRekapTagihanPerPo@exportExcel');
+    Route::get('laporan/rekap-tagihan-per-po/export/pdf/{po}','c_LaporanRekapTagihanPerPo@exportPDF');
+
+//    DETAIL PENCAIRAN PIUTANG
+    Route::get('laporan/detail-pencairan-piutang','c_LaporanBbnDealer@index');
+    Route::post('laporan/detail-pencairan-piutang/list','c_LaporanBbnDealer@list');
+    Route::get('laporan/detail-pencairan-piutang/export/excel/{dealer}/{status}','c_LaporanBbnDealer@exportExcel');
+    Route::get('laporan/detail-pencairan-piutang/export/pdf/{dealer}/{status}','c_LaporanBbnDealer@exportPDF');
 });
