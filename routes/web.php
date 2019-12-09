@@ -150,6 +150,12 @@ Route::middleware(['check.login','menupermission'])->group(function () {
      * 3. EXPORT EXCEL
      * 4. EXPORT PDF
      */
+//    LAPORAN TRANSAKSI
+    Route::get('laporan/transaksi','c_LaporanTransaksi@index');
+    Route::post('laporan/transaksi/list','c_LaporanTransaksi@list');
+    Route::get('laporan/transaksi/export/excel/{start}/{end}','c_LaporanTransaksi@exportExcel');
+    Route::get('laporan/transaksi/export/pdf/{start}/{end}','c_LaporanTransaksi@exportPDF');
+
 //    LAPORAN PER SAMSAT
     Route::get('laporan/bbn-per-samsat','c_LaporanBbnSamsat@index');
     Route::post('laporan/bbn-per-samsat/list','c_LaporanBbnSamsat@list');
@@ -176,8 +182,8 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('laporan/rekap-tagihan-per-po/export/pdf/{po}','c_LaporanRekapTagihanPerPo@exportPDF');
 
 //    DETAIL PENCAIRAN PIUTANG
-    Route::get('laporan/detail-pencairan-piutang','c_LaporanBbnDealer@index');
-    Route::post('laporan/detail-pencairan-piutang/list','c_LaporanBbnDealer@list');
-    Route::get('laporan/detail-pencairan-piutang/export/excel/{dealer}/{status}','c_LaporanBbnDealer@exportExcel');
-    Route::get('laporan/detail-pencairan-piutang/export/pdf/{dealer}/{status}','c_LaporanBbnDealer@exportPDF');
+    Route::get('laporan/detail-pencairan-piutang','c_LaporanDetailPencairanPiutang@index');
+    Route::post('laporan/detail-pencairan-piutang/list','c_LaporanDetailPencairanPiutang@list');
+    Route::get('laporan/detail-pencairan-piutang/export/excel/{start}/{end}','c_LaporanDetailPencairanPiutang@exportExcel');
+    Route::get('laporan/detail-pencairan-piutang/export/pdf/{start}/{end}','c_LaporanDetailPencairanPiutang@exportPDF');
 });

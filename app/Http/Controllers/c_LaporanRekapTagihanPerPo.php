@@ -133,8 +133,6 @@ class c_LaporanRekapTagihanPerPo extends Controller
     public function exportPDF($dealer) {
         try {
             $trn['data'] = $this->data($dealer);
-
-
             $pdf = PDF::loadView('dashboard.report.rekap-tagihan-per-po.pdf',$trn)->setPaper('a4','landscape');
             return $pdf->stream('report-rekap-tagihan-per-po.pdf');
         } catch (\Exception $ex) {
