@@ -16,8 +16,8 @@ class c_MasterKendaraan extends Controller
         return view('dashboard.master.kendaraan.baru');
     }
 
-    public function edit($kode) {
-        $data = DB::table('ms_kendaraan')->where('kode','=',$kode)->first();
+    public function edit($tipe) {
+        $data = DB::table('ms_kendaraan')->where('tipe','=',$tipe)->first();
         return view('dashboard.master.kendaraan.edit')->with('data',$data);
     }
 
@@ -26,8 +26,27 @@ class c_MasterKendaraan extends Controller
         return json_encode($data);
     }
 
+    public function updateStatus(Request $request) {
+        $tipe = $request->tipe;
+        $status = $request->status;
+        try {
+            DB::beginTransaction();
+            DB::table('ms_kendaraan')
+                ->where('tipe','=',$tipe)
+                ->update([
+                    'status' => $status
+                ]);
+            DB::commit();
+            return 'success';
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            return response()->json($ex);
+        }
+    }
+
     public function submit(Request $request) {
         $type = $request->type;
+        $tipeKendaraan = $request->tipe_kendaraan;
         $kode = $request->kode;
         $nama = $request->nama;
         $keterangan = $request->keterangan;
@@ -36,14 +55,16 @@ class c_MasterKendaraan extends Controller
             DB::beginTransaction();
             if ($type == 'baru') {
                 $kendaraan = new msKendaraan();
+                $kendaraan->tipe = $tipeKendaraan;
                 $kendaraan->kode = $kode;
                 $kendaraan->nama = $nama;
                 $kendaraan->keterangan = $keterangan;
                 $kendaraan->save();
             } elseif ($type == 'edit') {
                 DB::table('ms_kendaraan')
-                    ->where('kode','=',$request->kode)
+                    ->where('tipe','=',$tipeKendaraan)
                     ->update([
+                        'kode' => $kode,
                         'nama' => $nama,
                         'keterangan' => $keterangan,
                     ]);

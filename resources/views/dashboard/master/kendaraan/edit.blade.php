@@ -14,8 +14,12 @@
                         <input type="hidden" name="type" value="edit">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Kode Kendaraan</label>
-                                <input name="kode" type="text" class="form-control" value="{{ $data->kode }}" readonly>
+                                <label for="iTipe">Tipe Kendaraan</label>
+                                <input type="text" id="iTipe" name="tipe_kendaraan" class="form-control" value="{{ $data->tipe }}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="iKode">Kode Kendaraan</label>
+                                <input type="text" id="iKode" name="kode" class="form-control" value="{{ $data->kode }}">
                             </div>
                             <div class="form-group">
                                 <label>Nama Kendaraan</label>

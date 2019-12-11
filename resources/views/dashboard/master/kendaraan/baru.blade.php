@@ -14,6 +14,10 @@
                         <input type="hidden" name="type" value="baru">
                         <div class="card-body">
                             <div class="form-group">
+                                <label>Tipe Kendaraan</label>
+                                <input name="tipe_kendaraan" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label>Kode Kendaraan</label>
                                 <input name="kode" type="text" class="form-control">
                             </div>

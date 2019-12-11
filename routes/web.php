@@ -87,6 +87,7 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('master/kendaraan/baru','c_MasterKendaraan@add');
     Route::get('master/kendaraan/edit/{kode}','c_MasterKendaraan@edit');
     Route::post('master/kendaraan/submit','c_MasterKendaraan@submit');
+    Route::post('master/kendaraan/update-status','c_MasterKendaraan@updateStatus');
 
     Route::get('transaction/purchase-order','c_TransactionPurchaseOrder@index');
     Route::post('transaction/purchase-order/validasi','c_TransactionPurchaseOrder@validasi');

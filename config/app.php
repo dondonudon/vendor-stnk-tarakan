@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'version' => env('APP_VERSION','0.8.3'),
     'name' => env('APP_NAME', 'Desy Cahaya Mandiri'),
     'shortname' => env('APP_SHORT', 'DSC'),
     'developer' => env('APP_DEVELOPER','WAVE Solusi Indonesia'),

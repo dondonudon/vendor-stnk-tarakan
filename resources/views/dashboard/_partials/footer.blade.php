@@ -5,6 +5,6 @@
         Developed by <a href="https://waveitsolution.com/">{{ config('app.developer') }}</a>
     </div>
     <div class="footer-right">
-        0.8.0
+        {{ config('app.version') }}
     </div>
 </footer>
