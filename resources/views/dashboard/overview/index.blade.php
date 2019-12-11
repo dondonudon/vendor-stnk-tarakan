@@ -7,14 +7,14 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                    <i class="far fa-user"></i>
+                    <i class="fas fa-file-alt"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Admin</h4>
+                        <h4>Total PO Bulan Ini</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        0
                     </div>
                 </div>
             </div>
@@ -22,14 +22,14 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-danger">
-                    <i class="far fa-newspaper"></i>
+                    <i class="fas fa-clipboard-list"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>News</h4>
+                        <h4>Total Transaksi</h4>
                     </div>
                     <div class="card-body">
-                        42
+                        0
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <h4>Reports</h4>
                     </div>
                     <div class="card-body">
-                        1,201
+                        0
                     </div>
                 </div>
             </div>
@@ -56,10 +56,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Online Users</h4>
+                        <h4>Belum Notice</h4>
                     </div>
                     <div class="card-body">
-                        47
+                        0
                     </div>
                 </div>
             </div>
