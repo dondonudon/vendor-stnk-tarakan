@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'version' => env('APP_VERSION','0.8.3'),
+    'version' => env('APP_VERSION','0.8.4'),
+    'lastupdate' => env('APP_LAST_UPDATE','Penambahan Kolom Kode Kendaraan (opsional input)'),
     'name' => env('APP_NAME', 'Desy Cahaya Mandiri'),
     'shortname' => env('APP_SHORT', 'DSC'),
     'developer' => env('APP_DEVELOPER','WAVE Solusi Indonesia'),
