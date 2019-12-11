@@ -40,7 +40,7 @@ class c_TransactionPurchaseOrder extends Controller
     public function add() {
         $dealer = msDealer::all()->keyBy('id')->toArray();
         $samsat = msSamsat::all()->toArray();
-        $kendaraan = msKendaraan::all()->keyBy('kode')->toArray();
+        $kendaraan = msKendaraan::all()->keyBy('tipe')->toArray();
         $harga = msHarga::all()->keyBy('kode_kendaraan')->toArray();
         $data = [
             'dealer' => $dealer,
@@ -110,6 +110,11 @@ class c_TransactionPurchaseOrder extends Controller
                 $trn->kode_kendaraan = $t['kode_kendaraan'];
                 $trn->no_mesin = $t['no_mesin'];
                 $trn->nama_stnk = $t['nama_stnk'];
+                $trn->harga_jasa = $t['jasa'];
+                $trn->harga_notice_bbn = $t['notice'];
+                $trn->pnbp = $t['pnbp'];
+                $trn->pph = $t['pph'];
+                $trn->subtotal = $t['subtotal'];
                 $trn->keterangan = '';
                 $trn->save();
 

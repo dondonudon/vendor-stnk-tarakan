@@ -71,6 +71,11 @@
                                     <th>Kode Kendaraan</th>
                                     <th>No Mesin</th>
                                     <th>Nama STNK</th>
+                                    <th>Harga Jasa</th>
+                                    <th>Harga Notice</th>
+                                    <th>PNBP</th>
+                                    <th>PPH</th>
+                                    <th>Subtotal</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -95,7 +100,13 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-12 col-sm-12">
+                                <div class="col-lg-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Total</label>
+                                        <input id="iTotal" name="total" type="text" class="form-control text-right" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-sm-12">
                                     <div class="form-group">
                                         <label>Keterangan</label>
                                         <input id="iKeterangan" name="keterangan" type="text" class="form-control">
@@ -133,7 +144,7 @@
                                     <select id="iKodeKendaraan" name="kode_kendaraan" style="width: 100%">
                                         <option value="default" selected>- pilih kode kendaraan -</option>
                                         @foreach($data['kendaraan'] as $kendaraan)
-                                            <option value="{{ $kendaraan['kode'] }}">{{ $kendaraan['kode'] }}</option>
+                                            <option value="{{ $kendaraan['tipe'] }}">{{ $kendaraan['tipe'].' - '.$kendaraan['nama'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -150,6 +161,38 @@
                                 <div class="form-group">
                                     <label>Nama STNK</label>
                                     <input name="nama_stnk" id="iNamaStnk" type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase()" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    <label for="iHargaJasa">Harga Jasa</label>
+                                    <input name="harga_jasa" id="iHargaJasa" type="text" class="form-control text-right" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    <label for="iHargaNoticeBbn">Harga Notice</label>
+                                    <input name="harga_notice" id="iHargaNoticeBbn" type="text" class="form-control text-right" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    <label for="iPNBP">PNBP</label>
+                                    <input name="harga_pnbp" id="iPNBP" type="text" class="form-control text-right" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    <label for="iPPH">PPH</label>
+                                    <input name="harga_pph" id="iPPH" type="text" class="form-control text-right" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <div class="form-group">
+                                    <label for="iPPH">SubTotal</label>
+                                    <input name="subtotal" id="iSubtotal" type="text" class="form-control text-right" readonly>
                                 </div>
                             </div>
                         </div>
@@ -188,6 +231,10 @@
         let iNoMesin = $('#iNoMesin');
         let iNamaStnk = $('#iNamaStnk');
         let iHargaJasa = $('#iHargaJasa');
+        let iHargaNoticeBbn = $('#iHargaNoticeBbn');
+        let iPNBP = $('#iPNBP');
+        let iPPH = $('#iPPH');
+        let iSubtotal = $('#iSubtotal');
 
         let vHargaJasa;
 
@@ -296,6 +343,11 @@
                     {data: 'kode_kendaraan'},
                     {data: 'no_mesin'},
                     {data: 'nama_stnk'},
+                    {data: 'jasa'},
+                    {data: 'notice'},
+                    {data: 'pnbp'},
+                    {data: 'pph'},
+                    {data: 'subtotal'},
                 ],
             });
             $('#daftarKendaraan tbody').on('click', 'tr', function () {
@@ -309,6 +361,14 @@
             btnHapusKendaraan.click(function () {
                 btnHapusKendaraan.addClass('d-none');
                 daftarKendaraan.rows('.selected').remove().draw(false);
+            });
+            daftarKendaraan.on('draw',function () {
+                let daftarSubtotal = daftarKendaraan.columns(7).data()[0];
+                let total = 0;
+                daftarSubtotal.forEach(function (v,i) {
+                    total += parseFloat(numeral(v).format('0.0'));
+                });
+                iTotal.val(numeral(total).format('0,0.0'));
             });
 
             /*
@@ -326,37 +386,49 @@
             1. INISIALISASI SELECT2 DAN AMBIL NILAI HARGA
              */
             iKodeKendaraan.select2();
-            // iKodeKendaraan.change(function () {
-            //     let notice,pnbp,pph;
-            //     if (iKodeKendaraan.val() === 'default') {
-            //         iHargaNoticeBbn.val(0);
-            //         notice = parseFloat('0');
-            //         pnbp = parseFloat('0');
-            //         pph = parseFloat('0');
-            //     } else {
-            //         notice = parseFloat(dataHarga[iKodeKendaraan.val()]['harga']);
-            //         pnbp = parseFloat(dataHarga[iKodeKendaraan.val()]['pnbp']);
-            //         pph = parseFloat(dataHarga[iKodeKendaraan.val()]['pph']);
-            //     }
-            //     let jasa = parseFloat(vHargaJasa);
-            //     let subtotal = (notice+pnbp+jasa)-pph;
-            //     // console.log(subtotal);
-            //
-            //     iHargaNoticeBbn.val(numeral(notice).format('0,0.0'));
-            //     iPNBP.val(numeral(pnbp).format('0,0.0'));
-            //     iHargaJasa.val(numeral(jasa).format('0,0.0'));
-            //     iPPH.val(numeral(pph).format('0,0.0'));
-            //     iSubtotal.val(numeral(subtotal).format('0,0.0'));
-            // });
+            iKodeKendaraan.change(function () {
+                let notice,pnbp,pph;
+                if (iKodeKendaraan.val() === 'default') {
+                    iHargaNoticeBbn.val(0);
+                    notice = parseFloat('0');
+                    pnbp = parseFloat('0');
+                    pph = parseFloat('0');
+                } else {
+                    notice = parseFloat(dataHarga[iKodeKendaraan.val()]['harga']);
+                    pnbp = parseFloat(dataHarga[iKodeKendaraan.val()]['pnbp']);
+                    pph = parseFloat(dataHarga[iKodeKendaraan.val()]['pph']);
+                }
+                let jasa = parseFloat(dataDealer[iDealer.val()]['harga_jasa']);
+                let subtotal = (notice+pnbp+jasa)-pph;
+                // console.log(subtotal);
+
+                iHargaNoticeBbn.val(numeral(notice).format('0,0.0'));
+                iPNBP.val(numeral(pnbp).format('0,0.0'));
+                iHargaJasa.val(numeral(jasa).format('0,0.0'));
+                iPPH.val(numeral(pph).format('0,0.0'));
+                iSubtotal.val(numeral(subtotal).format('0,0.0'));
+            });
 
             btnTambahKendaraan.click(function (e) {
                 e.preventDefault();
-                formKendaraan.modal('show');
+                if (iDealer.val() === null) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Dealer wajib diisi',
+                    })
+                } else {
+                    formKendaraan.modal('show');
+                }
             });
             formKendaraan.on('hidden.bs.modal',function () {
                 iKodeKendaraan.val('default').trigger('change');
                 iNoMesin.val('');
                 iNamaStnk.val('');
+                iHargaJasa.val('');
+                iHargaNoticeBbn.val('');
+                iPNBP.val('');
+                iPPH.val('');
+                iSubtotal.val('');
             });
 
             /*
@@ -365,6 +437,7 @@
             dataFormKendaraan.submit(function (e) {
                 e.preventDefault();
                 let daftarNoMesin = daftarKendaraan.columns(1).data()[0];
+                let total = 0;
                 let noMesin = iNoMesin.val();
 
                 if (iKodeKendaraan.val() === 'default') {
@@ -385,6 +458,11 @@
                         'kode_kendaraan': data[0].value,
                         'no_mesin': data[1].value,
                         'nama_stnk': data[2].value,
+                        'jasa': data[3].value,
+                        'notice': data[4].value,
+                        'pnbp': data[5].value,
+                        'pph': data[6].value,
+                        'subtotal': data[7].value,
                     }).draw();
                 }
             });
@@ -408,6 +486,11 @@
                         'kode_kendaraan': v['kode_kendaraan'],
                         'no_mesin': v['no_mesin'],
                         'nama_stnk': v['nama_stnk'],
+                        'jasa': numeral(v['jasa']).format('0.0'),
+                        'notice': numeral(v['notice']).format('0.0'),
+                        'pnbp': numeral(v['pnbp']).format('0.0'),
+                        'pph': numeral(v['pph']).format('0.0'),
+                        'subtotal': numeral(v['subtotal']).format('0.0'),
                     };
                     num++;
                 });
