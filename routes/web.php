@@ -74,6 +74,7 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('master/samsat/baru','c_MasterSamsat@add');
     Route::get('master/samsat/edit/{id}','c_MasterSamsat@edit');
     Route::post('master/samsat/submit','c_MasterSamsat@submit');
+    Route::post('master/samsat/update-status','c_MasterSamsat@updateStatus');
 
     Route::get('master/harga','c_MasterHarga@index');
     Route::get('master/harga/list','c_MasterHarga@list');
