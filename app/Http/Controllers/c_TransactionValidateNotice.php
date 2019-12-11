@@ -74,31 +74,17 @@ class c_TransactionValidateNotice extends Controller
         $data = json_decode($request->data, true);
         $noPO = $data['no_po'];
         $kendaraan = $data['data'];
-        $jasa = DB::table('ms_dealer')->select('harga_jasa')->where('id','=',$data['id_dealer'])->first();
-        $harga = msHarga::all()->keyBy('kode_kendaraan');
 
         try {
             DB::beginTransaction();
 
-            $total = 0;
             foreach ($kendaraan as $k) {
-                $hargaJasa = $jasa->harga_jasa;
-                $hargaNotice = $harga[$k['tipe_kendaraan']]->harga;
-                $pph = $harga[$k['tipe_kendaraan']]->pph;
-                $pnbp = $harga[$k['tipe_kendaraan']]->pnbp;
-                $subtotal = ($hargaJasa+$hargaNotice+$pnbp)-$pph;
-                $total += $subtotal;
-                $trn = DB::table('po_trns')
+                DB::table('po_trns')
                     ->where('id','=',$k['id'])
                     ->update([
                         'status_bbn_proses' => 1,
                         'no_notice_bbn' => $data['no_notice'],
                         'tgl_notice_bbn' => $data['tgl_notice'],
-                        'harga_notice_bbn' => $hargaNotice,
-                        'harga_jasa' => $hargaJasa,
-                        'pph' => $pph,
-                        'pnbp' => $pnbp,
-                        'subtotal' => $subtotal,
                         'no_pol' => $k['no_pol'],
                         'status_bbn_kelengkapan' => $k['status_bbn_kelengkapan'],
                         'ukuran' => $k['ukuran'],
@@ -116,16 +102,9 @@ class c_TransactionValidateNotice extends Controller
                 ->where('status_bbn_proses','=',0);
             if ($trnNotice->count() == 0) {
                 DB::table('po_mst')
-                    ->where('no_po','=',$noPO)
+                    ->where('no_po', '=', $noPO)
                     ->update([
-                        'status_notice' => 1,
-                        'total' => DB::raw('total+'.$total)
-                    ]);
-            } else {
-                DB::table('po_mst')
-                    ->where('no_po','=',$noPO)
-                    ->update([
-                        'total' => DB::raw('total+'.$total)
+                        'status_notice' => 1
                     ]);
             }
 

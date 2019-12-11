@@ -100,6 +100,7 @@ class c_TransactionPurchaseOrder extends Controller
             $mst->id_samsat = $data['mst']['samsat'];
             $mst->provinsi = $data['mst']['provinsi'];
             $mst->kota = $data['mst']['kota'];
+            $mst->total = str_replace(',','',$data['mst']['total']);
             $mst->id_user = $idUser;
             $mst->keterangan = $data['mst']['keterangan'];
             $mst->save();
