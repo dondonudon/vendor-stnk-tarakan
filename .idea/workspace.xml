@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/baru.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/baru.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +230,7 @@
       <workItem from="1575607613416" duration="5535000" />
       <workItem from="1575684693775" duration="1103000" />
       <workItem from="1575863129519" duration="602000" />
-      <workItem from="1576028453060" duration="14425000" />
+      <workItem from="1576028453060" duration="14457000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
