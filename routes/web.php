@@ -67,6 +67,7 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('master/dealer/baru','c_MasterDealer@add');
     Route::get('master/dealer/edit/{id}','c_MasterDealer@edit');
     Route::post('master/dealer/submit','c_MasterDealer@submit');
+    Route::post('master/dealer/update-status','c_MasterDealer@updateStatus');
 
     Route::get('master/samsat','c_MasterSamsat@index');
     Route::get('master/samsat/list','c_MasterSamsat@list');
