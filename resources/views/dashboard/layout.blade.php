@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Vendor STNK - @yield('title')</title>
+    <title>{{ config('app.name') }} &mdash; @yield('title')</title>
 
     @include('dashboard._partials.head')
     @yield('style')

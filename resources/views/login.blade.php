@@ -23,7 +23,7 @@
                 <div class="col-12 col-sm-8 col-md-6 col-lg-6 col-xl-5">
                     <div class="login-brand">
                         <img src="{{ asset('assets/img/logo-lg.png') }}" alt="logo" width="100">
-                        <p class="mt-3">CV. {{ config('app.name') }}</p>
+                        <p class="mt-3">{{ config('app.name') }}</p>
                     </div>
 
                     <div class="card card-primary">
