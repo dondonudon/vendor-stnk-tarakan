@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/overview/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/overview/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +234,8 @@
       <workItem from="1575607613416" duration="5535000" />
       <workItem from="1575684693775" duration="1103000" />
       <workItem from="1575863129519" duration="602000" />
-      <workItem from="1576028453060" duration="16994000" />
+      <workItem from="1576028453060" duration="21896000" />
+      <workItem from="1576079905591" duration="603000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
@@ -335,9 +339,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="158" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1575510454293" />
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1575863173170">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="595" y="306" key="com.intellij.ide.util.TipDialog" timestamp="1576081746956">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1575863173170" />
+    <state x="595" y="306" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576081746956" />
   </component>
 </project>

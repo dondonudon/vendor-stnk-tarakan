@@ -124,7 +124,6 @@
                         Swal.fire({
                             icon: 'warning',
                             title: 'Login Failed',
-                            text: response,
                         });
                         console.log(response);
                     }

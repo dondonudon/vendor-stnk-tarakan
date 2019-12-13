@@ -44,7 +44,7 @@ class c_Login extends Controller
             }
             return $result;
         } catch (\Exception $ex) {
-            return response()->json($ex);
+            dd('Exception Block',$ex);
         }
     }
 

@@ -38,17 +38,22 @@ class c_TransactionPurchaseOrder extends Controller
     }
 
     public function add() {
-        $dealer = msDealer::all()->keyBy('id')->toArray();
-        $samsat = msSamsat::all()->toArray();
-        $kendaraan = msKendaraan::all()->keyBy('tipe')->toArray();
-        $harga = msHarga::all()->keyBy('kode_kendaraan')->toArray();
-        $data = [
-            'dealer' => $dealer,
-            'samsat' => $samsat,
-            'kendaraan' => $kendaraan,
-            'harga' => $harga,
-        ];
-        return view('dashboard.transaction.purchase-order.baru')->with('data',$data);
+        try {
+            $dealer = msDealer::all()->keyBy('id')->toArray();
+            $samsat = msSamsat::all()->toArray();
+            $kendaraan = msKendaraan::all()->keyBy('tipe')->toArray();
+            $harga = msHarga::all()->keyBy('kode_kendaraan')->toArray();
+            $data = [
+                'dealer' => $dealer,
+                'samsat' => $samsat,
+                'kendaraan' => $kendaraan,
+                'harga' => $harga,
+            ];
+            return view('dashboard.transaction.purchase-order.baru')->with('data',$data);
+//            return view('dashboard.overview.index');
+        } catch (\Exception $ex) {
+            return response()->json($ex);
+        }
     }
 
     public function validasi(Request $request) {
