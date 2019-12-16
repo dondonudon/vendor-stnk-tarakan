@@ -9,14 +9,18 @@
             can be of the full height and width !
          **/
         @page {
-            margin: 70px 25px;
+            margin-top: 100px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-bottom: 100px;
             font-family: 'Montserrat', sans-serif;
             font-size: 10px;
         }
 
         /** Define now the real margins of every page in the PDF **/
         body {
-            margin: 2.5cm 0.5cm 0.5cm ;
+            margin-top: 1cm;
+            margin-bottom: 0.5cm;
         }
 
         /** Define the header rules **/
@@ -31,7 +35,7 @@
             /*background-color: #03a9f4;*/
             color: black;
             text-align: left;
-            line-height: 35px;
+            line-height: 20px;
         }
 
         /** Define the footer rules **/
@@ -57,7 +61,12 @@
         .table td, .table th {
             border: 1px solid #dddddd;
             /*text-align: left;*/
-            padding: 3px;
+            padding: 1px;
+        }
+
+        .table-sm td, .table-sm th {
+            /*border: 1px solid black;*/
+            /*padding: 1px 1px;*/
         }
 
         .text-center {
@@ -80,43 +89,24 @@
             <td colspan="3" style="width: 40%; font-size: 15px; font-weight: bold;">
                 CV. {{ config('app.name') }}
             </td>
-            <td style="width: 60%; font-size: 15px; font-weight: bold; text-align: right">
-                Laporan Transaksi
-            </td>
         </tr>
-{{--        <tr>--}}
-{{--            <td style="width: 70px; font-size: 15px; font-weight: bold;">--}}
-{{--                Tanggal--}}
-{{--            </td>--}}
-{{--            <td style="width: 2px">:</td>--}}
-{{--            <td style="width: 100%; font-size: 15px">--}}
-{{--                {{ date('d F Y',strtotime($data[0]->tanggal)) }}--}}
-{{--            </td>--}}
-{{--            <td style="text-align: right">--}}
-{{--                Dibuat Pada:--}}
-{{--            </td>--}}
-{{--        </tr>--}}
-{{--        <tr>--}}
-{{--            <td style="font-size: 15px; font-weight: bold;">--}}
-{{--                No PO--}}
-{{--            </td>--}}
-{{--            <td>:</td>--}}
-{{--            <td style="font-size: 15px">--}}
-{{--                {{ $data[0]->no_po }}--}}
-{{--            </td>--}}
-{{--            <td style="text-align: right">--}}
-{{--                {{ date('d F Y - H:i:s') }}--}}
-{{--            </td>--}}
-{{--        </tr>--}}
-{{--        <tr>--}}
-{{--            <td style="font-size: 15px; font-weight: bold;">--}}
-{{--                Wilayah--}}
-{{--            </td>--}}
-{{--            <td>:</td>--}}
-{{--            <td style="font-size: 15px">--}}
-{{--                {{ $data[0]->wilayah }}--}}
-{{--            </td>--}}
-{{--        </tr>--}}
+    </table>
+    <table class="table-sm" style="font-size: 15px; border-collapse: collapse;">
+        <tr>
+            <td>Laporan</td>
+            <td>:</td>
+            <td>{{ ucfirst(request()->segment(2)) }}</td>
+        </tr>
+        <tr>
+            <td>Periode</td>
+            <td>:</td>
+            <td>{{ date('d F Y',strtotime(request()->segment(5))).' - '.date('d F Y',strtotime(request()->segment(6))) }}</td>
+        </tr>
+        <tr>
+            <td>Dibuat Pada</td>
+            <td>:</td>
+            <td>{{ date('d F Y H:i:s') }}</td>
+        </tr>
     </table>
 </header>
 
@@ -124,20 +114,20 @@
     <table style="width: 100%; margin: 10px">
         <tr>
             <td style="text-align: left">
-                &copy; <?php echo date("Y");?> {{ config('app.name') }}
+                &copy; <?php echo date("Y");?> {{ request()->getHttpHost() }}
             </td>
         </tr>
     </table>
 </footer>
 
-<main style="margin-top: 40px">
+<main style="margin-top: 30px">
     <table class="table" style="width: 100%">
         <thead>
         <tr class="text-center">
-            <th width="7%">TGL PO</th>
+            <th style="width: 6%">TGL PO</th>
             <th>NAMA</th>
             <th>DAERAH</th>
-            <th>JML</th>
+            <th style="width: 2%">JML</th>
             <th>NOTICE</th>
             <th>NO PO</th>
             <th>JASA</th>

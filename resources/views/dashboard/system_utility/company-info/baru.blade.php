@@ -63,7 +63,7 @@
                                 showConfirmButton: false,
                                 timer: 1000,
                                 onClose: function () {
-                                    window.location = '{{ url('system-utility/company-info') }}';
+                                    window.location = '{{ url()->previous() }}';
                                 }
                             });
                         } else {

@@ -23,6 +23,7 @@
                                 <th>PIC</th>
                                 <th>Jatuh Tempo</th>
                                 <th>Harga Jasa</th>
+                                <th>Kuitansi</th>
                                 <th>Keterangan</th>
                                 <th>Tgl Input</th>
                             </tr>
@@ -134,6 +135,12 @@
                         data: 'harga_jasa',
                         render: function (data) {
                             return '<div class="text-right">'+numeral(data).format('0,0.0')+'</div>';
+                        }
+                    },
+                    {
+                        data: 'kuitansi',
+                        render: function (data) {
+                            return (data === 1) ? '1 Lembar' : '2 Lembar';
                         }
                     },
                     {data: 'keterangan'},

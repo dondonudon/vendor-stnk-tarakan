@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_MasterDealer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_MasterDealer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_SystemProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_SystemProfile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/dealer/baru.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/dealer/baru.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/dealer/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/dealer/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/master/dealer/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/master/dealer/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-samsat/pdf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-samsat/pdf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/transaksi/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/transaksi/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/transaksi/pdf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/transaksi/pdf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/system_utility/company-info/baru.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/system_utility/company-info/baru.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/system_utility/company-info/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/system_utility/company-info/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/system_utility/company-info/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/system_utility/company-info/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/baru.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/baru.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +141,7 @@
       <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
       <path value="$PROJECT_DIR$/vendor/carlos-meneses/laravel-mpdf" />
       <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
+      <path value="$PROJECT_DIR$/vendor/riskihajar/terbilang" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TEbjrUUWsFq1HRmQquHUW7vWLK" />
@@ -148,17 +165,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\group" />
-      <recent name="D:\Development\vendor-stnk-tarakan\public" />
-      <recent name="D:\Development\vendor-stnk-tarakan\public\assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\report\detail-pencairan-piutang" />
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\report\rekap-tagihan-per-po" />
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\report\bbn-per-periode" />
       <recent name="D:\Development\vendor-stnk-tarakan\public" />
       <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\company-info" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\vendor-stnk-tarakan\resources\views\dashboard\system_utility\group" />
+      <recent name="D:\Development\vendor-stnk-tarakan\public" />
+      <recent name="D:\Development\vendor-stnk-tarakan\public\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -236,6 +253,11 @@
       <workItem from="1575863129519" duration="602000" />
       <workItem from="1576028453060" duration="21896000" />
       <workItem from="1576079905591" duration="603000" />
+      <workItem from="1576226248240" duration="4401000" />
+      <workItem from="1576236687817" duration="2977000" />
+      <workItem from="1576286372932" duration="17271000" />
+      <workItem from="1576460291315" duration="641000" />
+      <workItem from="1576460986381" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
@@ -323,10 +345,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="Laporan Rekap Tagihan per PO" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575600490401">
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1576460921796">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1575600490401" />
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1576460921796" />
+    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576287275602">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1576287275602" />
     <state x="423" y="0" key="CommitChangelistDialog2" timestamp="1575510434956">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -339,10 +365,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="158" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1575510454293" />
-    <state x="595" y="306" key="com.intellij.ide.util.TipDialog" timestamp="1576081746956">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1576460993922">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1575863173170" />
-    <state x="595" y="306" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576081746956" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1576460993922" />
+    <state x="595" y="306" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576237704129" />
   </component>
 </project>

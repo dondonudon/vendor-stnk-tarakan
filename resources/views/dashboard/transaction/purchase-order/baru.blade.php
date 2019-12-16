@@ -358,7 +358,8 @@
                     btnHapusKendaraan.addClass('d-none');
                 }
             });
-            btnHapusKendaraan.click(function () {
+            btnHapusKendaraan.click(function (e) {
+                e.preventDefault();
                 btnHapusKendaraan.addClass('d-none');
                 daftarKendaraan.rows('.selected').remove().draw(false);
             });

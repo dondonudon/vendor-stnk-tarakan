@@ -9,47 +9,48 @@
             can be of the full height and width !
          **/
         @page {
-            margin: 0cm 0cm;
+            margin-top: 100px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-bottom: 100px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
+            font-size: 10px;
         }
 
         /** Define now the real margins of every page in the PDF **/
         body {
-            margin-top: 3cm;
-            margin-left: 2cm;
-            margin-right: 2cm;
-            margin-bottom: 2cm;
+            margin-top: 1cm;
+            margin-bottom: 0.5cm;
         }
 
         /** Define the header rules **/
         header {
             position: fixed;
-            top: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 3cm;
+            top: -60px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
 
             /** Extra personal styles **/
-            background-color: #03a9f4;
-            color: white;
+            /*background-color: #03a9f4;*/
+            color: black;
             text-align: left;
-            line-height: 1.5cm;
+            line-height: 20px;
         }
 
         /** Define the footer rules **/
         footer {
             position: fixed;
-            bottom: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 1.5cm;
+            bottom: -60px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
 
             /** Extra personal styles **/
-            background-color: #03a9f4;
-            color: white;
+            /*background-color: #03a9f4;*/
+            color: black;
             text-align: center;
-            line-height: 0.5cm;
+            line-height: 35px;
         }
 
         .table {
@@ -60,11 +61,20 @@
         .table td, .table th {
             border: 1px solid #dddddd;
             /*text-align: left;*/
-            padding: 8px;
+            padding: 1px;
+        }
+
+        .table-sm td, .table-sm th {
+            /*border: 1px solid black;*/
+            /*padding: 1px 1px;*/
         }
 
         .text-center {
             text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
         }
 
         .color-gray {
@@ -74,31 +84,50 @@
 </head>
 <body>
 <header>
-    <div style="margin: 0.5cm">
-        <table style="width: 100%">
-            <tr>
-                <td>
-                    <img src="{{ public_path('assets/img/logo-lg.png') }}" class="img-fluid mt-3" style="height: 70%" alt="Logo">
-                </td>
-                <td style="text-align: right; font-size: 20px; font-weight: bold">
-                    LAPORAN NOTICE BBN PER SAMSAT
-                </td>
-            </tr>
-        </table>
-    </div>
+    <table style="width: 100%">
+        <tr>
+            <td style="width: 10%">
+{{--                <img src="{{ asset('assets/img/logo-lg.png') }}" alt="logo">--}}
+                <img src="{{ public_path('assets/img/logo-lg.png') }}" class="img-fluid mt-3" style="height: 100%" alt="Logo">
+            </td>
+            <td>
+                <table class="table-sm" style="width: 40%">
+                    <tr>
+                        <td style="width: 25%"></td>
+                        <td style="width: 5%"></td>
+                        <td style="width: 70%"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="font-size: 15px; font-weight: bold;">
+                            CV. {{ config('app.name') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Laporan</td>
+                        <td>:</td>
+                        <td>{{ str_replace('-',' ',strtoupper(request()->segment(2))) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Dibuat Pada</td>
+                        <td>:</td>
+                        <td>{{ date('d F Y H:i:s') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Dibuat oleh</td>
+                        <td>:</td>
+                        <td>{{ request()->session()->get('name') }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </header>
 
 <footer style="font-size: 15px">
     <table style="width: 100%; margin: 10px">
         <tr>
             <td style="text-align: left">
-                &copy; <?php echo date("Y");?> {{ config('app.name') }}
-            </td>
-            <td style="text-align: right">
-                <small>
-                    DATE CREATED:
-                    {{ date('d F Y H:i:s') }}
-                </small>
+                &copy; <?php echo date("Y");?> {{ request()->getHttpHost() }}
             </td>
         </tr>
     </table>
@@ -108,11 +137,11 @@
     <table class="table" style="width: 100%">
         <thead>
         <tr>
-            <th>SAMSAT</th>
-            <th>DEALER</th>
-            <th>BELUM BBN</th>
-            <th>SUDAH BBN</th>
-            <th>TOTAL BBN</th>
+            <th style="text-align: center">SAMSAT</th>
+            <th style="text-align: center">DEALER</th>
+            <th style="text-align: center">BELUM BBN</th>
+            <th style="text-align: center">SUDAH BBN</th>
+            <th style="text-align: center">TOTAL BBN</th>
         </tr>
         </thead>
         <tbody>

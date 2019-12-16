@@ -60,9 +60,27 @@
                                 <label>Jatuh Tempo (Hari)</label>
                                 <input name="jatuh_tempo" type="text" class="form-control" value="{{ $data->jatuh_tempo }}">
                             </div>
-                            <div class="form-group">
-                                <label>Harga Jasa</label>
-                                <input id="iHargaJasa" name="harga_jasa" type="text" class="form-control" value="{{ $data->harga_jasa }}">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Harga Jasa</label>
+                                        <input id="iHargaJasa" name="harga_jasa" type="text" class="form-control" value="{{ $data->harga_jasa }}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="iKuitansi">Kuitansi Cetak</label>
+                                        <select class="form-control" id="iKuitansi" name="kuitansi">
+                                            @if($data->kuitansi == 1)
+                                                <option value="1" selected>1 Lembar</option>
+                                                <option value="2">2 Lembar</option>
+                                            @else
+                                                <option value="1">1 Lembar</option>
+                                                <option value="2" selected>2 Lembar</option>
+                                            @endif
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>

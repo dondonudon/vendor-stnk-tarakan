@@ -18,7 +18,7 @@ class c_MasterDealer extends Controller
 
     public function edit($id) {
         $data = DB::table('ms_dealer')
-            ->select('ms_dealer.id','ms_dealer.nama','ms_dealer.provinsi as id_provinsi','wilayah_provinsi.name as provinsi','ms_dealer.kota as id_kota','wilayah_kota.name as kota','ms_dealer.alamat','ms_dealer.telp','ms_dealer.pic','ms_dealer.jatuh_tempo','ms_dealer.harga_jasa','ms_dealer.keterangan','ms_dealer.created_at')
+            ->select('ms_dealer.id','ms_dealer.nama','ms_dealer.provinsi as id_provinsi','wilayah_provinsi.name as provinsi','ms_dealer.kota as id_kota','wilayah_kota.name as kota','ms_dealer.alamat','ms_dealer.telp','ms_dealer.pic','ms_dealer.jatuh_tempo','ms_dealer.harga_jasa','ms_dealer.kuitansi','ms_dealer.keterangan','ms_dealer.created_at')
             ->where('ms_dealer.id','=',$id)
             ->join('wilayah_kota','ms_dealer.kota','=','wilayah_kota.id')
             ->join('wilayah_provinsi','ms_dealer.provinsi','=','wilayah_provinsi.id')
@@ -28,7 +28,7 @@ class c_MasterDealer extends Controller
 
     public function list() {
         $data['data'] = DB::table('ms_dealer')
-            ->select('ms_dealer.status','ms_dealer.id','ms_dealer.nama','ms_dealer.provinsi as id_provinsi','wilayah_provinsi.name as provinsi','ms_dealer.kota as id_kota','wilayah_kota.name as kota','ms_dealer.alamat','ms_dealer.telp','ms_dealer.pic','ms_dealer.jatuh_tempo','ms_dealer.harga_jasa','ms_dealer.keterangan','ms_dealer.created_at')
+            ->select('ms_dealer.status','ms_dealer.id','ms_dealer.nama','ms_dealer.provinsi as id_provinsi','wilayah_provinsi.name as provinsi','ms_dealer.kota as id_kota','wilayah_kota.name as kota','ms_dealer.alamat','ms_dealer.telp','ms_dealer.pic','ms_dealer.jatuh_tempo','ms_dealer.harga_jasa','ms_dealer.kuitansi','ms_dealer.keterangan','ms_dealer.created_at')
             ->join('wilayah_kota','ms_dealer.kota','=','wilayah_kota.id')
             ->join('wilayah_provinsi','ms_dealer.provinsi','=','wilayah_provinsi.id')
             ->get();
@@ -63,6 +63,7 @@ class c_MasterDealer extends Controller
         $pic = $request->pic;
         $jatuhTempo = $request->jatuh_tempo;
         $hargaJasa = str_replace(',','',$request->harga_jasa);
+        $kuitansi = $request->kuitansi;
 
         try {
             DB::beginTransaction();
@@ -76,6 +77,7 @@ class c_MasterDealer extends Controller
                 $dealer->pic = $pic;
                 $dealer->jatuh_tempo = $jatuhTempo;
                 $dealer->harga_jasa = $hargaJasa;
+                $dealer->kuitansi = $kuitansi;
                 $dealer->keterangan = ($request->keterangan == null) ? '' : $request->keterangan;
                 $dealer->save();
             } elseif ($type == 'edit') {
@@ -90,6 +92,7 @@ class c_MasterDealer extends Controller
                         'pic' => $pic,
                         'jatuh_tempo' => $jatuhTempo,
                         'harga_jasa' => $hargaJasa,
+                        'kuitansi' => $kuitansi,
                         'keterangan' => ($request->keterangan == null) ? '' : $request->keterangan,
                     ]);
             }

@@ -27,7 +27,7 @@
                                 </form>
                             </div>
                         </div>
-                        <table id="listTable" class="table table-striped table-bordered display nowrap" style="width: 100%">
+                        <table id="listTable" class="table table-sm table-striped table-bordered display nowrap" style="width: 100%">
                             <thead>
                             <tr>
                                 <th>No PO</th>
@@ -77,12 +77,12 @@
                     <div class="card-footer bg-whitesmoke">
                         <div class="row justify-content-end">
                             <div class="col-sm-12 col-lg-2 mt-2 mt-lg-0">
-                                <button type="button" id="btnCetak" class="btn btn-block btn-outline-info d-none">
-                                    <i class="fas fa-print mr-2"></i>CETAK
+                                <button type="button" id="btnCetak" class="btn btn-block btn-outline-success disabled">
+                                    <i class="fas fa-print mr-2"></i>KUITANSI
                                 </button>
                             </div>
                             <div class="col-sm-12 col-lg-2 mt-2 mt-lg-0">
-                                <button type="button" id="btnDetail" class="btn btn-block btn-outline-info d-none">
+                                <button type="button" id="btnDetail" class="btn btn-block btn-outline-info disabled">
                                     <i class="fas fa-file-alt mr-2"></i>DETAIL
                                 </button>
                             </div>
@@ -149,15 +149,15 @@
             $('#listTable tbody').on('click','tr',function () {
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
-                    btnDetail.addClass('d-none');
-                    btnCetak.addClass('d-none');
+                    btnDetail.addClass('disabled');
+                    btnCetak.addClass('disabled');
 
                     dataID = null;
                 } else {
                     listTable.$('tr.selected').removeClass('selected');
                     $(this).addClass('selected');
-                    btnDetail.removeClass('d-none');
-                    btnCetak.removeClass('d-none');
+                    btnDetail.removeClass('disabled');
+                    btnCetak.removeClass('disabled');
 
 
                     let data = listTable.row('.selected').data();
@@ -168,7 +168,12 @@
             btnDetail.click(function (e) {
                 e.preventDefault();
                 window.location = '{{ url('transaction/purchase-order/detail') }}/'+dataID;
-            })
+            });
+
+            btnCetak.click(function (e) {
+                e.preventDefault();
+                window.open('{{ url('cetak/purchase-order') }}/'+dataID);
+            });
         });
     </script>
 @endsection

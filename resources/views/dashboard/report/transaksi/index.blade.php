@@ -1,6 +1,8 @@
 @extends('dashboard.layout')
 
-@section('title','Laporan - Detail Pencairan Piutang')
+@section('title')
+    {{ ucfirst(request()->segment(1)).' - '.ucfirst(request()->segment(2)) }}
+@endsection
 
 @section('content')
     <div class="section-body">

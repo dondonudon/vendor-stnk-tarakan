@@ -18,10 +18,10 @@ class c_SystemProfile extends Controller
     }
 
     public function edit($id) {
-        $data = DB::table('ms_dealer')
+        $data = DB::table('sys_profile')
             ->where('id','=',$id)
             ->first();
-        return view('dashboard.master.dealer.edit')->with('data',$data);
+        return view('dashboard.system_utility.company-info.edit')->with('data',$data);
     }
 
     public function list() {

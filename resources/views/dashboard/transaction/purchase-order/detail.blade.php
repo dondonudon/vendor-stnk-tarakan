@@ -49,11 +49,16 @@
                         </div>
                     </div>
                     <div class="card-footer bg-whitesmoke">
-                        <div class="row justify-content-start">
+                        <div class="row justify-content-between">
                             <div class="col-sm-12 col-lg-2 mt-2 mt-lg-0">
-                                <a href="{{ url('transaction/purchase-order') }}" class="btn btn-block btn-primary">
+                                <a href="{{ url()->previous() }}" class="btn btn-block btn-primary">
                                     <i class="fas fa-arrow-left mr-2"></i>KEMBALI
                                 </a>
+                            </div>
+                            <div class="col-sm-12 col-lg-2 mt-2 mt-lg-0">
+                                <button type="button" id="btnCetak" class="btn btn-block btn-success">
+                                    <i class="fas fa-print mr-2"></i>KUITANSI
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -65,24 +70,6 @@
                         <h4>Daftar Kendaraan</h4>
                     </div>
                     <div class="card-body">
-{{--                        <div class="row">--}}
-{{--                            <div class="col-lg-4 col-sm-12">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label for="filterStatus">Filter Status</label>--}}
-{{--                                    <select class="form-control" id="filterStatus">--}}
-{{--                                        <option value="all">All</option>--}}
-{{--                                        <option value="Notice Belum">Belum Validasi Notice</option>--}}
-{{--                                        <option value="Notice Sudah">Sudah Validasi Notice</option>--}}
-{{--                                        <option value="Berkas Belum Lengkap">Berkas Validasi Notice Belum Lengkap</option>--}}
-{{--                                        <option value="Berkas Sudah Lengkap">Berkas Validasi Notice Sudah Lengkap</option>--}}
-{{--                                        <option value="STNK diterima dari SAMSAT">STNK diterima dari SAMSAT</option>--}}
-{{--                                        <option value="STNK diterima Dealer">STNK diterima Dealer</option>--}}
-{{--                                        <option value="BPKB diterima dari SAMSAT">BPKB diterima dari SAMSAT</option>--}}
-{{--                                        <option value="BPKB diterima Dealer">BPKB diterima Dealer</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                         <table class="table table-sm table-striped table-bordered nowrap" id="daftarKendaraan" style="width: 100%">
                             <thead>
                             <tr>
@@ -115,6 +102,7 @@
     <script type="text/javascript">
         let noPO = '{{ $data['mst']->no_po }}';
         let filterStatus = $('#filterStatus');
+        let btnCetak = $('#btnCetak');
 
         function reloadDaftar() {
             daftarKendaraan.clear().draw();
@@ -269,10 +257,10 @@
         $(document).ready(function () {
             reloadDaftar();
 
-            // filterStatus.change(function () {
-            //     let val = $(this).val();
-            //
-            // });
+            btnCetak.click(function (e) {
+                e.preventDefault();
+                window.open('{{ url('cetak/purchase-order/'.$data['mst']->no_po) }}');
+            });
         });
     </script>
 @endsection

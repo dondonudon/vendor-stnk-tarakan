@@ -30,6 +30,8 @@ Route::get('data/wilayah-provinsi', 'c_Dashboard@wilayahProvinsi');
 Route::get('data/wilayah-kota', 'c_Dashboard@wilayahKota');
 
 Route::middleware(['check.login','menupermission'])->group(function () {
+    Route::get('cetak/purchase-order/{po}','c_Cetak@purchaseOrder');
+
     Route::get('/', 'c_Overview@index');
 
     Route::get('reset-password', 'c_Profile@resetPassword');

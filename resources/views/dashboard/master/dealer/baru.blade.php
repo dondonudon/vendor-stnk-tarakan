@@ -55,9 +55,22 @@
                                 <label>Jatuh Tempo (Hari)</label>
                                 <input name="jatuh_tempo" type="text" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <label>Harga Jasa</label>
-                                <input id="iHargaJasa" name="harga_jasa" type="text" class="form-control">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Harga Jasa</label>
+                                        <input id="iHargaJasa" name="harga_jasa" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="iKuitansi">Kuitansi Cetak</label>
+                                        <select class="form-control" id="iKuitansi" name="kuitansi">
+                                            <option value="1">1 Lembar</option>
+                                            <option value="2">2 Lembar</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
