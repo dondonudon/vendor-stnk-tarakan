@@ -102,6 +102,7 @@ class c_LaporanBbnDealer extends Controller
     public function exportPDF($dealer,$status) {
         try {
             $trn['data'] = $this->data($dealer,$status);
+            $trn['company'] = DB::table('sys_profile')->get()->keyBy('name');
 
             $pdf = PDF::loadView('dashboard.report.bbn-per-dealer.pdf',$trn)->setPaper('a4','landscape');
             return $pdf->stream('report-bbn-per-periode.pdf');

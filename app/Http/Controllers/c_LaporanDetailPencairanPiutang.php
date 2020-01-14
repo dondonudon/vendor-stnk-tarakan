@@ -106,6 +106,8 @@ class c_LaporanDetailPencairanPiutang extends Controller
     public function exportPDF($start,$end) {
         try {
             $trn['data'] = $this->data($start,$end);
+            $trn['company'] = DB::table('sys_profile')->get()->keyBy('name');
+
             $pdf = PDF::loadView('dashboard.report.detail-pencairan-piutang.pdf',$trn)->setPaper('a4','landscape');
             return $pdf->stream('report-rekap-tagihan-per-po.pdf');
         } catch (\Exception $ex) {

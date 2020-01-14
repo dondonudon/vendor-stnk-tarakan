@@ -111,6 +111,10 @@
             text-align: right;
         }
 
+        .text-bold {
+            font-weight: bold;
+        }
+
         .color-gray {
             background-color: #e4e4e4;
         }
@@ -121,7 +125,7 @@
     <table>
         <tr>
             <td>
-                <img src="{{ public_path('assets/img/kuitansi-1.png') }}" style="width: 100%; height: 160%">
+                <img src="assets/img/kuitansi-1.png" style="width: 100%; height: 160%">
             </td>
         </tr>
     </table>
@@ -182,27 +186,27 @@
 <main>
     <table class="table-trn">
         <tr>
-            <td style="width: 150px">No Bukti</td>
+            <td class="text-bold" style="width: 150px">No Bukti</td>
             <td style="width: 2px">:</td>
             <td>{{ request()->segment(3) }}</td>
         </tr>
         <tr>
-            <td>Sudah diterima dari</td>
+            <td class="text-bold">Sudah diterima dari</td>
             <td>:</td>
             <td>{{ $transaksi->dealer }}</td>
         </tr>
         <tr>
-            <td>Banyak Uang</td>
+            <td class="text-bold">Banyak Uang</td>
             <td>:</td>
             <td>Rp {{ number_format($transaksi->total) }}</td>
         </tr>
         <tr>
-            <td>Terbilang</td>
+            <td class="text-bold">Terbilang</td>
             <td>:</td>
             <td>{{ strtoupper(Riskihajar\Terbilang\Facades\Terbilang::make($transaksi->total,' rupiah')) }}</td>
         </tr>
         <tr>
-            <td>Untuk Pembayaran</td>
+            <td class="text-bold">Untuk Pembayaran</td>
             <td>:</td>
             <td>NOTICE DAN JASA PENGURUSAN BBN {{ $transaksi->jumlah }} UNIT</td>
         </tr>

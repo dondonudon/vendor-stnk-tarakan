@@ -104,6 +104,7 @@ class c_LaporanBbnPeriode extends Controller
     public function exportPDF($start,$end,$status) {
         try {
             $trn['data'] = $this->data($start,$end,$status);
+            $trn['company'] = DB::table('sys_profile')->get()->keyBy('name');
 
             $pdf = PDF::loadView('dashboard.report.bbn-per-periode.pdf',$trn)->setPaper('a4','landscape');
             return $pdf->stream('report-bbn-per-periode.pdf');

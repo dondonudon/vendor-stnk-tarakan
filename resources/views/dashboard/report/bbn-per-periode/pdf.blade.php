@@ -5,51 +5,69 @@
 
     <style>
         /**
-            Set the margins of the page to 0, so the footer and the header
-            can be of the full height and width !
-         **/
+             Set the margins of the page to 0, so the footer and the header
+             can be of the full height and width !
+          **/
         @page {
-            margin: 0cm 0cm;
+            margin-top: 100px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-bottom: 100px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
+            font-size: 10px;
         }
 
         /** Define now the real margins of every page in the PDF **/
         body {
-            margin-top: 3cm;
-            margin-left: 2cm;
-            margin-right: 2cm;
-            margin-bottom: 2cm;
+            margin-top: 1.5cm;
+            margin-bottom: 3.5cm;
+            /*background-color: #0f6674;*/
         }
 
         /** Define the header rules **/
         header {
             position: fixed;
-            top: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 3cm;
+            top: -60px;
+            left: 0px;
+            right: 0px;
+            height: 2.5cm;
+            /*background-color: #0b5885;*/
 
             /** Extra personal styles **/
-            background-color: #03a9f4;
-            color: white;
+            /*background-color: #03a9f4;*/
+            color: black;
             text-align: left;
-            line-height: 1.5cm;
+            line-height: 20px;
+            font-size: 12px;
         }
 
         /** Define the footer rules **/
         footer {
             position: fixed;
-            bottom: 0cm;
-            left: 0cm;
-            right: 0cm;
-            height: 1.5cm;
+            bottom: -60px;
+            left: 0px;
+            right: 0px;
+            height: 4.5cm;
 
             /** Extra personal styles **/
-            background-color: #03a9f4;
-            color: white;
+            /*background-color: #03a9f4;*/
+            color: black;
             text-align: center;
-            line-height: 0.5cm;
+            line-height: 35px;
+        }
+
+        /*.header table, .header tr, .header td {*/
+        /*    border: 1px red solid;*/
+        /*}*/
+
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            font-size: 20px;
+            font-weight: bold;
         }
 
         .table {
@@ -60,7 +78,12 @@
         .table td, .table th {
             border: 1px solid #dddddd;
             /*text-align: left;*/
-            padding: 5px;
+            padding: 1px;
+        }
+
+        .table-sm td, .table-sm th {
+            /*border: 1px solid black;*/
+            /*padding: 1px 1px;*/
         }
 
         .text-center {
@@ -71,6 +94,10 @@
             text-align: right;
         }
 
+        .text-bold {
+            font-weight: bold;
+        }
+
         .color-gray {
             background-color: #e4e4e4;
         }
@@ -78,37 +105,68 @@
 </head>
 <body>
 <header>
-    <div style="margin: 0.5cm">
-        <table style="width: 100%">
-            <tr>
-                <td>
-                    <img src="{{ public_path('assets/img/logo-lg.png') }}" class="img-fluid mt-3" style="height: 70%" alt="Logo">
-                </td>
-                <td style="text-align: right; font-size: 20px; font-weight: bold">
-                    LAPORAN NOTICE BBN PER PERIODE
-                </td>
-            </tr>
-        </table>
-    </div>
+    <table class="header" style="width: 100%">
+        <tr>
+            <td style="width: 40%">
+                <table style="width: 100%">
+                    <tr>
+                        <td class="title" colspan="3">CV. {{ config('app.name') }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold">Periode</td>
+                        <td>:</td>
+                        <td style="width: 80%">{{ date('d F Y',strtotime(request()->segment(5))).' - '.date('d F Y',strtotime(request()->segment(6))) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold">Status</td>
+                        <td>:</td>
+                        <td>{{ request()->segment(7) == 0 ? 'Belum BBN' : 'Sudah BBN' }}</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 25%"></td>
+            <td style="width: 35%; vertical-align: top">
+                <table style="width: 100%; text-align: right">
+                    <tr>
+                        <td class="sub-title" colspan="3">Laporan BBN per Periode</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold" style="width: 30%">Dibuat Pada</td>
+                        <td style="width: 5%">:</td>
+                        <td>{{ date('d F Y - H:i:s') }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold" style="width: 30%">Dibuat Oleh</td>
+                        <td style="width: 5%">:</td>
+                        <td>{{ request()->session()->get('name') }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <hr>
 </header>
 
 <footer style="font-size: 15px">
-    <table style="width: 100%; margin: 10px">
+    <table style="width: 100%">
         <tr>
-            <td style="text-align: left">
-                &copy; <?php echo date("Y");?> {{ config('app.name') }}
+            <td rowspan="3" style="width: 65%"></td>
+            <td style="text-align: center; font-size: 16px">
+                {{ $company['kota']->value.', '.date('d F Y') }}
             </td>
-            <td style="text-align: right">
-                <small>
-                    DATE CREATED:
-                    {{ date('d F Y H:i:s') }}
-                </small>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: darkgray; height: 70px">MATERAI</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-size: 14px; font-weight: bold;">
+                <pre>(     {{ $company['pic_area']->value }}     )</pre>
             </td>
         </tr>
     </table>
 </footer>
 
-<main style="margin-top: 40px">
+<main>
     <table class="table" style="width: 100%">
         <thead>
         <tr class="text-center">

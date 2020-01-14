@@ -9,6 +9,8 @@ use App\msSamsat;
 use App\poBpkbDealer;
 use App\poBpkbSamsat;
 use App\poMst;
+use App\poPlatDealer;
+use App\poPlatSamsat;
 use App\poStnkDealer;
 use App\poStnkSamsat;
 use App\poTrn;
@@ -143,13 +145,23 @@ class c_TransactionPurchaseOrder extends Controller
                 $bpkbDealer->no_po = $data['mst']['no_po'];
                 $bpkbDealer->id_trn = $trn->id;
                 $bpkbDealer->save();
+
+                $platSamsat = new poPlatSamsat();
+                $platSamsat->no_po = $data['mst']['no_po'];
+                $platSamsat->id_trn = $trn->id;
+                $platSamsat->save();
+
+                $platDealer = new poPlatDealer();
+                $platDealer->no_po = $data['mst']['no_po'];
+                $platDealer->id_trn = $trn->id;
+                $platDealer->save();
             }
 
             DB::commit();
             return 'success';
         } catch (\Exception $ex) {
             DB::rollBack();
-            dd($data,$ex);
+            return response()->json([$ex,$data]);
         }
     }
 

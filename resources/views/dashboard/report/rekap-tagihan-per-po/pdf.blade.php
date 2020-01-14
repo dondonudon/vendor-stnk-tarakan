@@ -5,18 +5,23 @@
 
     <style>
         /**
-            Set the margins of the page to 0, so the footer and the header
-            can be of the full height and width !
-         **/
+             Set the margins of the page to 0, so the footer and the header
+             can be of the full height and width !
+          **/
         @page {
-            margin: 70px 25px;
+            margin-top: 100px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-bottom: 100px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
+            font-size: 10px;
         }
 
         /** Define now the real margins of every page in the PDF **/
         body {
-            margin: 2.5cm 0.5cm 0.5cm ;
+            margin-top: 2cm;
+            margin-bottom: 3.5cm;
+            /*background-color: #0f6674;*/
         }
 
         /** Define the header rules **/
@@ -25,13 +30,15 @@
             top: -60px;
             left: 0px;
             right: 0px;
-            height: 50px;
+            height: 3cm;
+            /*background-color: #0b5885;*/
 
             /** Extra personal styles **/
             /*background-color: #03a9f4;*/
             color: black;
             text-align: left;
-            line-height: 35px;
+            line-height: 20px;
+            font-size: 12px;
         }
 
         /** Define the footer rules **/
@@ -40,13 +47,27 @@
             bottom: -60px;
             left: 0px;
             right: 0px;
-            height: 50px;
+            height: 4.5cm;
 
             /** Extra personal styles **/
             /*background-color: #03a9f4;*/
             color: black;
             text-align: center;
             line-height: 35px;
+        }
+
+        /*.header table, .header tr, .header td {*/
+        /*    border: 1px red solid;*/
+        /*}*/
+
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            font-size: 20px;
+            font-weight: bold;
         }
 
         .table {
@@ -57,7 +78,12 @@
         .table td, .table th {
             border: 1px solid #dddddd;
             /*text-align: left;*/
-            padding: 2px;
+            padding: 1px;
+        }
+
+        .table-sm td, .table-sm th {
+            /*border: 1px solid black;*/
+            /*padding: 1px 1px;*/
         }
 
         .text-center {
@@ -68,6 +94,10 @@
             text-align: right;
         }
 
+        .text-bold {
+            font-weight: bold;
+        }
+
         .color-gray {
             background-color: #e4e4e4;
         }
@@ -75,62 +105,73 @@
 </head>
 <body>
 <header>
-    <table style="width: 100%">
+    <table class="header" style="width: 100%">
         <tr>
-            <td colspan="3" style="width: 40%; font-size: 15px; font-weight: bold;">
-                CV. {{ config('app.name') }}
+            <td style="width: 40%">
+                <table style="width: 100%">
+                    <tr>
+                        <td class="title" colspan="3">CV. {{ config('app.name') }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold" style="width: 15%">Tanggal</td>
+                        <td style="width: 5%">:</td>
+                        <td style="width: 80%">{{ date('d F Y',strtotime($data[0]->tanggal)) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold">No PO</td>
+                        <td>:</td>
+                        <td>{{ $data[0]->no_po }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold">Wilayah</td>
+                        <td>:</td>
+                        <td>{{ $data[0]->wilayah }}</td>
+                    </tr>
+                </table>
             </td>
-            <td style="width: 60%; font-size: 15px; font-weight: bold; text-align: right">
-                Laporan Rekap Tagihan per PO
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 70px; font-size: 15px; font-weight: bold;">
-                Tanggal
-            </td>
-            <td style="width: 2px">:</td>
-            <td style="width: 100%; font-size: 15px">
-                {{ date('d F Y',strtotime($data[0]->tanggal)) }}
-            </td>
-            <td style="text-align: right">
-                Dibuat Pada:
-            </td>
-        </tr>
-        <tr>
-            <td style="font-size: 15px; font-weight: bold;">
-                No PO
-            </td>
-            <td>:</td>
-            <td style="font-size: 15px">
-                {{ $data[0]->no_po }}
-            </td>
-            <td style="text-align: right">
-                {{ date('d F Y - H:i:s') }}
-            </td>
-        </tr>
-        <tr>
-            <td style="font-size: 15px; font-weight: bold;">
-                Wilayah
-            </td>
-            <td>:</td>
-            <td style="font-size: 15px">
-                {{ $data[0]->wilayah }}
+            <td style="width: 25%"></td>
+            <td style="width: 35%; vertical-align: top">
+                <table style="width: 100%; text-align: right">
+                    <tr>
+                        <td class="sub-title" colspan="3">Laporan Rekap Tagihan per PO</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold" style="width: 30%">Dibuat Pada</td>
+                        <td style="width: 5%">:</td>
+                        <td>{{ date('d F Y - H:i:s') }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-bold" style="width: 30%">Dibuat Oleh</td>
+                        <td style="width: 5%">:</td>
+                        <td>{{ request()->session()->get('name') }}</td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>
+    <hr>
 </header>
 
-<footer style="font-size: 15px">
-    <table style="width: 100%; margin: 10px">
+<footer>
+    <table style="width: 100%">
         <tr>
-            <td style="text-align: left">
-                &copy; <?php echo date("Y");?> {{ config('app.name') }}
+            <td rowspan="3" style="width: 65%"></td>
+            <td style="text-align: center; font-size: 16px">
+                {{ $company['kota']->value.', '.date('d F Y') }}
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; color: darkgray; height: 70px">MATERAI</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; font-size: 14px; font-weight: bold;">
+                <pre>(     {{ $company['pic_area']->value }}     )</pre>
             </td>
         </tr>
     </table>
 </footer>
 
-<main style="margin-top: 40px">
+<main>
     <table class="table" style="width: 100%">
         <thead>
         <tr class="text-center">
@@ -159,11 +200,11 @@
                 <td>{{ $t->no_pol }}</td>
                 <td>{{ $t->kode_kendaraan }}</td>
                 <td>{{ $t->no_mesin }}</td>
-                <td>{{ $t->harga_notice_bbn }}</td>
-                <td>{{ $t->pnbp }}</td>
-                <td>{{ $t->harga_jasa }}</td>
-                <td>{{ $t->pph }}</td>
-                <td>{{ $t->subtotal }}</td>
+                <td class="text-right">{{ number_format($t->harga_notice_bbn) }}</td>
+                <td class="text-right">{{ number_format($t->pnbp) }}</td>
+                <td class="text-right">{{ number_format($t->harga_jasa) }}</td>
+                <td class="text-right">{{ number_format($t->pph) }}</td>
+                <td class="text-right">{{ number_format($t->subtotal) }}</td>
             </tr>
             {{ $notice += $t->harga_notice_bbn }}
             {{ $pnbp += $t->pnbp }}

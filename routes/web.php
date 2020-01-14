@@ -148,6 +148,22 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::post('transaction/bpkb-ke-dealer/daftar-validasi','c_TransactionBpkbDealer@daftarValidasi');
     Route::post('transaction/bpkb-ke-dealer/submit','c_TransactionBpkbDealer@submit');
 
+    Route::get('transaction/plat-dari-samsat','c_TransaksiPlatSamsat@index');
+    Route::get('transaction/plat-dari-samsat/list','c_TransaksiPlatSamsat@list');
+    Route::get('transaction/plat-dari-samsat/update-kelengkapan/{nopo}/{id}','c_TransaksiPlatSamsat@updateKelengkapan');
+    Route::get('transaction/plat-dari-samsat/validasi/{nopo}','c_TransaksiPlatSamsat@validasi');
+    Route::get('transaction/plat-dari-samsat/check-total-data','c_TransaksiPlatSamsat@checkTotalData');
+    Route::post('transaction/plat-dari-samsat/daftar-validasi','c_TransaksiPlatSamsat@daftarValidasi');
+    Route::post('transaction/plat-dari-samsat/submit','c_TransaksiPlatSamsat@submit');
+
+    Route::get('transaction/plat-ke-dealer','c_TransaksiPlatDealer@index');
+    Route::get('transaction/plat-ke-dealer/list','c_TransaksiPlatDealer@list');
+    Route::get('transaction/plat-ke-dealer/update-kelengkapan/{nopo}/{id}','c_TransaksiPlatDealer@updateKelengkapan');
+    Route::get('transaction/plat-ke-dealer/validasi/{nopo}','c_TransaksiPlatDealer@validasi');
+    Route::get('transaction/plat-ke-dealer/check-total-data','c_TransaksiPlatDealer@checkTotalData');
+    Route::post('transaction/plat-ke-dealer/daftar-validasi','c_TransaksiPlatDealer@daftarValidasi');
+    Route::post('transaction/plat-ke-dealer/submit','c_TransaksiPlatDealer@submit');
+
     /*
      * LAPORAN
      * 1. INDEX

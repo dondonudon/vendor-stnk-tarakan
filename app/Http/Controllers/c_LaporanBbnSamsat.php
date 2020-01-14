@@ -90,6 +90,7 @@ class c_LaporanBbnSamsat extends Controller
     public function exportPDF() {
         try {
             $trn['data'] = $this->list();
+            $trn['company'] = DB::table('sys_profile')->get()->keyBy('name');
 
             $pdf = PDF::loadView('dashboard.report.bbn-per-samsat.pdf',$trn);
             return $pdf->stream('report-bbn-per-samsat.pdf');

@@ -131,12 +131,13 @@ class c_LaporanRekapTagihanPerPo extends Controller
     }
 
     public function exportPDF($dealer) {
+        $trn['data'] = $this->data($dealer);
+        $trn['company'] = DB::table('sys_profile')->get()->keyBy('name');
         try {
-            $trn['data'] = $this->data($dealer);
             $pdf = PDF::loadView('dashboard.report.rekap-tagihan-per-po.pdf',$trn)->setPaper('a4','landscape');
             return $pdf->stream('report-rekap-tagihan-per-po.pdf');
         } catch (\Exception $ex) {
-            return response()->json($ex);
+            return response()->json([$ex]);
         }
     }
 }
