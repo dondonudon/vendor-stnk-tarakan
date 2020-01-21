@@ -2,36 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_Cetak.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_Cetak.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbDealer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbDealer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbSamsat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionBpkbSamsat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionPurchaseOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkDealer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkDealer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkSamsat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransactionStnkSamsat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransaksiPlatDealer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransaksiPlatDealer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_TransaksiPlatSamsat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_TransaksiPlatSamsat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/general.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/general.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/plugin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cetak/kuitansi-1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cetak/kuitansi-1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cetak/kuitansi-2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cetak/kuitansi-2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/baru.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/bpkb-ke-dealer/validasi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/plat-dari-samsat/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/plat-dari-samsat/validasi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/plat-ke-dealer/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/plat-ke-dealer/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/plat-ke-dealer/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/plat-ke-dealer/validasi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/purchase-order/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/baru.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/validasi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/transaction/stnk-ke-dealer/validasi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +127,9 @@
       <path value="$PROJECT_DIR$/vendor/carlos-meneses/laravel-mpdf" />
       <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
       <path value="$PROJECT_DIR$/vendor/riskihajar/terbilang" />
+      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/vendor/spatie/db-dumper" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-backup" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TEbjrUUWsFq1HRmQquHUW7vWLK" />
@@ -278,6 +257,8 @@
       <workItem from="1579349169809" duration="689000" />
       <workItem from="1579484523703" duration="19595000" />
       <workItem from="1579570382210" duration="20127000" />
+      <workItem from="1579639445878" duration="493000" />
+      <workItem from="1579640136988" duration="670000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
@@ -365,10 +346,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Laporan Rekap Tagihan per PO" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1576460921796">
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579639780708">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1576460921796" />
+    <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1579639780708" />
     <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1579166243093">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -377,6 +358,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="423" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1575510434956" />
+    <state x="380" y="164" key="IDE.errors.dialog" timestamp="1579639762507">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="380" y="164" key="IDE.errors.dialog/0.0.1600.860@0.0.1600.860" timestamp="1579639762507" />
     <state x="246" y="75" width="998" height="708" key="SettingsEditor" timestamp="1575616031242">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -385,10 +370,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="158" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1575510454293" />
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1579570440000">
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1579640158898">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1579570440000" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1579640158898" />
     <state x="595" y="306" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576237704129" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1579323544283">
       <screen x="0" y="0" width="1600" height="860" />
