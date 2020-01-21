@@ -9,6 +9,9 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>PLAT No belum terima Dealer</h4>
+                        <div class="card-header-action">
+                            <a href="{{ url(request()->path().'/history-kuitansi') }}" class="btn btn-danger">Cetak Kuitansi <i class="fas fa-chevron-right"></i></a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table id="listTable" class="table table-striped table-bordered display nowrap" style="width: 100%">

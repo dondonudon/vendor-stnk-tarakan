@@ -11,11 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+
+//$current = request()->segments();
+//Log::info($current);
+
+Route::get('increment/{table}/{kode}','GetLatestKode@kode');
 
 
 Route::get('login','c_Login@index');
@@ -31,6 +37,7 @@ Route::get('data/wilayah-kota', 'c_Dashboard@wilayahKota');
 
 Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('cetak/purchase-order/{po}','c_Cetak@purchaseOrder');
+    Route::get('cetak/{kuitansi}/{kode_validasi}','c_Cetak@cetakKuitansiValidasi');
 
     Route::get('/', 'c_Overview@index');
 
@@ -95,7 +102,7 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::post('transaction/purchase-order/validasi','c_TransactionPurchaseOrder@validasi');
     Route::get('transaction/purchase-order/detail/{nopo}','c_TransactionPurchaseOrder@detail');
     Route::post('transaction/purchase-order/daftar-kendaraan','c_TransactionPurchaseOrder@daftarKendaraan');
-//    Route::get('transaction/purchase-order/list','c_TransactionPurchaseOrder@list');
+    Route::post('transaction/purchase-order/list','c_TransactionPurchaseOrder@list');
     Route::get('transaction/purchase-order/baru','c_TransactionPurchaseOrder@add');
     Route::post('transaction/purchase-order/submit','c_TransactionPurchaseOrder@submit');
 
@@ -131,6 +138,8 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('transaction/stnk-ke-dealer/check-total-data','c_TransactionStnkDealer@checkTotalData');
     Route::post('transaction/stnk-ke-dealer/daftar-validasi','c_TransactionStnkDealer@daftarValidasi');
     Route::post('transaction/stnk-ke-dealer/submit','c_TransactionStnkDealer@submit');
+    Route::get('transaction/stnk-ke-dealer/history-kuitansi','c_TransactionStnkDealer@historyKuitansi');
+    Route::post('transaction/stnk-ke-dealer/history-kuitansi/data','c_TransactionStnkDealer@datasetKuitansi');
 
     Route::get('transaction/bpkb-dari-samsat','c_TransactionBpkbSamsat@index');
     Route::get('transaction/bpkb-dari-samsat/list','c_TransactionBpkbSamsat@list');
@@ -147,6 +156,8 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('transaction/bpkb-ke-dealer/check-total-data','c_TransactionBpkbDealer@checkTotalData');
     Route::post('transaction/bpkb-ke-dealer/daftar-validasi','c_TransactionBpkbDealer@daftarValidasi');
     Route::post('transaction/bpkb-ke-dealer/submit','c_TransactionBpkbDealer@submit');
+    Route::get('transaction/bpkb-ke-dealer/history-kuitansi','c_TransactionBpkbDealer@historyKuitansi');
+    Route::post('transaction/bpkb-ke-dealer/history-kuitansi/data','c_TransactionBpkbDealer@datasetKuitansi');
 
     Route::get('transaction/plat-dari-samsat','c_TransaksiPlatSamsat@index');
     Route::get('transaction/plat-dari-samsat/list','c_TransaksiPlatSamsat@list');
@@ -163,6 +174,8 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::get('transaction/plat-ke-dealer/check-total-data','c_TransaksiPlatDealer@checkTotalData');
     Route::post('transaction/plat-ke-dealer/daftar-validasi','c_TransaksiPlatDealer@daftarValidasi');
     Route::post('transaction/plat-ke-dealer/submit','c_TransaksiPlatDealer@submit');
+    Route::get('transaction/plat-ke-dealer/history-kuitansi','c_TransaksiPlatDealer@historyKuitansi');
+    Route::post('transaction/plat-ke-dealer/history-kuitansi/data','c_TransaksiPlatDealer@datasetKuitansi');
 
     /*
      * LAPORAN
@@ -207,4 +220,25 @@ Route::middleware(['check.login','menupermission'])->group(function () {
     Route::post('laporan/detail-pencairan-piutang/list','c_LaporanDetailPencairanPiutang@list');
     Route::get('laporan/detail-pencairan-piutang/export/excel/{start}/{end}','c_LaporanDetailPencairanPiutang@exportExcel');
     Route::get('laporan/detail-pencairan-piutang/export/pdf/{start}/{end}','c_LaporanDetailPencairanPiutang@exportPDF');
+
+//    LAPORAN PENGIRIMAN BPKB
+    Route::get('laporan/pengiriman-bpkb','c_LaporanPengirimanBPKB@index');
+    Route::post('laporan/pengiriman-bpkb/list','c_LaporanPengirimanBPKB@list');
+    Route::get('laporan/pengiriman-bpkb/po','c_LaporanPengirimanBPKB@po');
+    Route::get('laporan/pengiriman-bpkb/export/excel/{start}/{end}/{dealer}','c_LaporanPengirimanBPKB@exportExcel');
+    Route::get('laporan/pengiriman-bpkb/export/pdf/{start}/{end}/{dealer}','c_LaporanPengirimanBPKB@exportPDF');
+
+//    LAPORAN PENGIRIMAN STNK
+    Route::get('laporan/pengiriman-stnk','c_LaporanPengirimanSTNK@index');
+    Route::post('laporan/pengiriman-stnk/list','c_LaporanPengirimanSTNK@list');
+    Route::get('laporan/pengiriman-stnk/po','c_LaporanPengirimanSTNK@po');
+    Route::get('laporan/pengiriman-stnk/export/excel/{start}/{end}/{dealer}','c_LaporanPengirimanSTNK@exportExcel');
+    Route::get('laporan/pengiriman-stnk/export/pdf/{start}/{end}/{dealer}','c_LaporanPengirimanSTNK@exportPDF');
+
+//    LAPORAN PENGIRIMAN PLAT
+    Route::get('laporan/pengiriman-plat','c_LaporanPengirimanPlat@index');
+    Route::post('laporan/pengiriman-plat/list','c_LaporanPengirimanPlat@list');
+    Route::get('laporan/pengiriman-plat/po','c_LaporanPengirimanPlat@po');
+    Route::get('laporan/pengiriman-plat/export/excel/{start}/{end}/{dealer}','c_LaporanPengirimanPlat@exportExcel');
+    Route::get('laporan/pengiriman-plat/export/pdf/{start}/{end}/{dealer}','c_LaporanPengirimanPlat@exportPDF');
 });

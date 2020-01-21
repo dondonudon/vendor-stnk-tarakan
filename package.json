@@ -32,6 +32,7 @@
         "numeral": "^2.0.6",
         "popper.js": "^1.16.0",
         "select2": "^4.0.12",
-        "sweetalert2": "^9.3.0"
+        "sweetalert2": "^9.3.0",
+        "tabulator-tables": "^4.5.3"
     }
 }

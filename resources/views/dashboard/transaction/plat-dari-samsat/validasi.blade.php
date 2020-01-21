@@ -157,8 +157,9 @@
             if (saved.length === 0) {
                 data = {no_po: noPO};
             } else {
-                data = {no_po: noPO, saved: JSON.stringify(saved)};
+                data = {no_po: noPO, saved: saved[0]};
             }
+            // console.log(data);
             $.ajax({
                 url: '{{ url('transaction/plat-dari-samsat/daftar-validasi') }}',
                 method: 'post',

@@ -41,6 +41,18 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    function Loading($status) {
+        if ($status == 'start') {
+            Swal.fire({
+                title: 'Loading',
+                onBeforeOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        } else {
+            Swal.close();
+        }
+    }
 </script>
 
 @yield('script')

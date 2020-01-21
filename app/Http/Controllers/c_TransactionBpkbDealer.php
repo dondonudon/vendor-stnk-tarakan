@@ -42,11 +42,16 @@ class c_TransactionBpkbDealer extends Controller
     }
 
     public function daftarValidasi(Request $request) {
-        $trn = DB::table('po_trns')
-            ->where('no_po','=',$request->no_po)
-            ->where('status_bpkb_dealer','=',0)
-            ->get();
-        return $trn;
+        $saved = $request->saved ?? null;
+        $table = DB::table('po_trns')
+            ->where([
+                ['no_po','=',$request->no_po],
+                ['status_bpkb_dealer','=',0],
+            ]);
+        if ($saved !== null) {
+            $table->whereNotIn('id',$saved);
+        }
+        return $table->get();
     }
 
     public function list() {
@@ -63,15 +68,25 @@ class c_TransactionBpkbDealer extends Controller
     }
 
     public function submit(Request $request) {
+        $kodeValidasi = GetLatestKode::kode('po_plat_dealer','PD');
         $data = json_decode($request->data, true);
         $noPO = $data['no_po'];
         $kendaraan = $data['data'];
+        $today = date('Y-m-d');
 
         try {
             DB::beginTransaction();
 
             foreach ($kendaraan as $k) {
-                $trn = DB::table('po_trns')
+                $update = [
+                    'status' => $k['status'],
+                    'tgl_validasi' => $today,
+                    'catatan' => $k['catatan'],
+                ];
+                if ($k['status'] == 1) {
+                    $update['kode_validasi'] = $kodeValidasi;
+                }
+                DB::table('po_trns')
                     ->where('id','=',$k['id'])
                     ->update([
                         'status_bpkb_dealer' => $k['status'],
@@ -79,10 +94,7 @@ class c_TransactionBpkbDealer extends Controller
 
                 DB::table('po_bpkb_dealer')
                     ->where('id_trn','=',$k['id'])
-                    ->update([
-                        'status' => $k['status'],
-                        'catatan' => $k['catatan'],
-                    ]);
+                    ->update($update);
             }
 
             $trnKelengkapan = DB::table('po_trns')
@@ -97,10 +109,28 @@ class c_TransactionBpkbDealer extends Controller
             }
 
             DB::commit();
-            return 'success';
+            return ['status'=>'success','kode_validasi'=>$kodeValidasi];
         } catch (\Exception $ex) {
             DB::rollBack();
             return response()->json($ex);
         }
+    }
+
+    public function datasetKuitansi() {
+        try {
+            return DB::table('po_bpkb_dealer')
+                ->distinct()
+                ->select('po_bpkb_dealer.kode_validasi', 'po_bpkb_dealer.tgl_validasi', 'po_bpkb_dealer.no_po', 'ms_dealer.nama as dealer')
+                ->leftJoin('po_mst', 'po_bpkb_dealer.no_po','=','po_mst.no_po')
+                ->leftJoin('ms_dealer', 'po_mst.id_dealer', '=', 'ms_dealer.id')
+                ->whereNotNull('po_bpkb_dealer.kode_validasi')
+                ->paginate(10);
+        } catch (\Exception $ex) {
+            return response()->json([$ex]);
+        }
+    }
+
+    public function historyKuitansi(Request $request) {
+        return view('dashboard.transaction.bpkb-ke-dealer.kuitansi');
     }
 }

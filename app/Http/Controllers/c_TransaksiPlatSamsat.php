@@ -42,12 +42,16 @@ class c_TransaksiPlatSamsat extends Controller
     }
 
     public function daftarValidasi(Request $request) {
-        $trn = DB::table('po_trns')
-            ->where('no_po','=',$request->no_po)
-            ->where('status_plat_samsat','=',0)
-            ->get();
-
-        return $trn;
+        $saved = $request->saved ?? null;
+        $table = DB::table('po_trns')
+            ->where([
+                ['no_po','=',$request->no_po],
+                ['status_plat_samsat','=',0],
+            ]);
+        if ($saved !== null) {
+            $table->whereNotIn('id',$saved);
+        }
+        return $table->get();
     }
 
     public function list() {

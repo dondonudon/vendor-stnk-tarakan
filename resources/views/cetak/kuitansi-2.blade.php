@@ -203,7 +203,7 @@
         <tr>
             <td class="text-bold">Terbilang</td>
             <td>:</td>
-            <td>{{ strtoupper(Riskihajar\Terbilang\Facades\Terbilang::make($transaksi->jasa,' rupiah')) }}</td>
+            <td>{{ strtoupper($terbilang) }}</td>
         </tr>
         <tr>
             <td class="text-bold">Untuk Pembayaran</td>

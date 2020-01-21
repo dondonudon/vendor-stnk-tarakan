@@ -24,6 +24,7 @@ mix
     ],'public/general.js')
     .scripts([
         // 'node_modules/@fortawesome/fontawesome-free/js/all.js',
+        'node_modules/tabulator-tables/dist/js/tabulator.js',
         'public/vendor/daterangepicker-master/daterangepicker.js',
         'node_modules/datatables.net/js/jquery.dataTables.js',
         'node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js',
@@ -35,6 +36,7 @@ mix
     .styles([
         'node_modules/bootstrap/dist/css/bootstrap.css',
         // 'node_modules/@fortawesome/fontawesome-free/css/all.css',
+        'node_modules/tabulator-tables/dist/css/bootstrap/tabulator_bootstrap4.css',
         'public/vendor/daterangepicker-master/daterangepicker.css',
         'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css',
         'node_modules/sweetalert2/dist/sweetalert2.css',

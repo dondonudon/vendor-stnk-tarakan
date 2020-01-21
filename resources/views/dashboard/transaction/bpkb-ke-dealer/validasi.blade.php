@@ -157,7 +157,7 @@
             if (saved.length === 0) {
                 data = {no_po: noPO};
             } else {
-                data = {no_po: noPO, saved: JSON.stringify(saved)};
+                data = {no_po: noPO, saved: saved[0]};
             }
             $.ajax({
                 url: '{{ url('transaction/bpkb-ke-dealer/daftar-validasi') }}',
@@ -313,6 +313,7 @@
              */
             $('#formData').submit(function (e) {
                 e.preventDefault();
+                Loading('start');
                 if (validasi.rows().count() === 0) {
                     Swal.fire({
                         icon: 'warning',
@@ -330,12 +331,16 @@
                         method: 'post',
                         data: {data: JSON.stringify(data)},
                         success: function (response) {
-                            if (response === 'success') {
+                            if (response['status'] === 'success') {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Data Tersimpan',
+                                    title: 'Kode Validasi: '+response['kode_validasi'],
+                                    // showCloseButton: true,
+                                    // showCancelButton: true,
+                                    // confirmButtonText: '<i class="fas fa-print"></i> Cetak Kuitansi',
                                     onClose: function () {
-                                        window.location = '{{ url('transaction/bpkb-ke-dealer') }}'
+                                        {{--window.open('{{ url('transaction/plat-ke-dealer/kuitansi/') }}');--}}
+                                            window.location = '{{ url('transaction/bpkb-ke-dealer') }}';
                                     }
                                 });
                             } else {

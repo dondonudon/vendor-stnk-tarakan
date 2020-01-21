@@ -65,6 +65,7 @@ class c_TransactionStnkSamsat extends Controller
         $data = json_decode($request->data, true);
         $noPO = $data['no_po'];
         $kendaraan = $data['data'];
+        $today = date('Y-m-d');
 
         try {
             DB::beginTransaction();
@@ -80,6 +81,7 @@ class c_TransactionStnkSamsat extends Controller
                     ->where('id_trn','=',$k['id'])
                     ->update([
                         'status' => $k['status'],
+                        'tgl_validasi' => $today,
                         'catatan' => $k['catatan'],
                     ]);
             }

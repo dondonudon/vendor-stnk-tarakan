@@ -20,23 +20,7 @@ use Illuminate\Support\Facades\DB;
 class c_TransactionPurchaseOrder extends Controller
 {
     public function index() {
-        $search = isset($_GET['search']) ? $_GET['search'] : '';
-        $data = DB::table('po_mst')
-            ->select('no_po','tgl_po','ms_dealer.nama as dealer','ms_samsat.nama as samsat','wilayah_provinsi.name as provinsi','wilayah_kota.name as kota','total','users.name as user','po_mst.keterangan','po_mst.created_at')
-            ->join('ms_dealer','po_mst.id_dealer','=','ms_dealer.id')
-            ->join('ms_samsat','po_mst.id_samsat','=','ms_samsat.id')
-            ->join('wilayah_provinsi','po_mst.provinsi','=','wilayah_provinsi.id')
-            ->join('wilayah_kota','po_mst.kota','=','wilayah_kota.id')
-            ->join('users','po_mst.id_user','=','users.id')
-            ->where('no_po','like','%'.$search.'%')
-            ->orderBy('created_at','desc')
-            ->paginate(10);
-        return view(
-            'dashboard.transaction.purchase-order.list',
-            [
-                'purchaseorder' => $data,
-                'search' => $search
-            ]);
+        return view('dashboard.transaction.purchase-order.list');
     }
 
     public function add() {
@@ -81,17 +65,19 @@ class c_TransactionPurchaseOrder extends Controller
         return view('dashboard.transaction.purchase-order.edit')->with('data',$data);
     }
 
-//    public function list() {
-//        $data['data'] = DB::table('po_mst')
-//            ->select('no_po','tgl_po','ms_dealer.nama as dealer','ms_samsat.nama as samsat','wilayah_provinsi.name as provinsi','wilayah_kota.name as kota','total','users.name as user','po_mst.keterangan','po_mst.created_at')
-//            ->join('ms_dealer','po_mst.id_dealer','=','ms_dealer.id')
-//            ->join('ms_samsat','po_mst.id_samsat','=','ms_samsat.id')
-//            ->join('wilayah_provinsi','po_mst.provinsi','=','wilayah_provinsi.id')
-//            ->join('wilayah_kota','po_mst.kota','=','wilayah_kota.id')
-//            ->join('users','po_mst.id_user','=','users.id')
-//            ->paginate(10);
-//        return json_encode($data);
-//    }
+    public function list(Request $request) {
+        $search = isset($request->search) ? $request->search : '';
+        return DB::table('po_mst')
+            ->select('no_po','tgl_po','ms_dealer.nama as dealer','ms_samsat.nama as samsat','wilayah_provinsi.name as provinsi','wilayah_kota.name as kota','total','users.name as user','po_mst.keterangan','po_mst.created_at')
+            ->join('ms_dealer','po_mst.id_dealer','=','ms_dealer.id')
+            ->join('ms_samsat','po_mst.id_samsat','=','ms_samsat.id')
+            ->join('wilayah_provinsi','po_mst.provinsi','=','wilayah_provinsi.id')
+            ->join('wilayah_kota','po_mst.kota','=','wilayah_kota.id')
+            ->join('users','po_mst.id_user','=','users.id')
+            ->where('no_po','like','%'.$search.'%')
+            ->orderBy('created_at','desc')
+            ->paginate(10);
+    }
 
     public function submit(Request $request) {
         $idUser = 3;
