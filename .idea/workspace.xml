@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor_stnk_tarakan.sql" beforeDir="false" afterPath="$PROJECT_DIR$/vendor_stnk_tarakan.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +255,8 @@
       <workItem from="1579570382210" duration="20127000" />
       <workItem from="1579639445878" duration="493000" />
       <workItem from="1579640136988" duration="1001000" />
-      <workItem from="1579819517499" duration="1941000" />
+      <workItem from="1579819517499" duration="2239000" />
+      <workItem from="1580349568993" duration="655000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>
@@ -315,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575510449025</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="User Seeder">
+      <created>1579822722871</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1579822722871</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +348,8 @@
     <MESSAGE value="Laporan BBN per PERIODE" />
     <MESSAGE value="Laporan BBN per DEALER" />
     <MESSAGE value="Laporan Rekap Tagihan per PO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laporan Rekap Tagihan per PO" />
+    <MESSAGE value="User Seeder" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Seeder" />
   </component>
   <component name="WindowStateProjectService">
     <state x="480" y="157" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579639780708">
