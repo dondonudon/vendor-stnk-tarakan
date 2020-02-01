@@ -19,6 +19,15 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        <div class="row align-items-end">
+                            <div class="col-sm-12 col-lg-3">
+                                <div class="form-group">
+                                    <label for="iSamsat">SAMSAT</label>
+                                    <select name="samsat" id="iSamsat" style="width: 100%" required></select>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
                         <table id="tableReport" class="table table-sm table-striped table-borderless nowrap" style="width: 100%">
                             <thead>
                             <tr>
@@ -66,6 +75,7 @@
         let vTotalBelumBbn = $('#vTotalBelumBbn');
         let vTotalSudahBbn = $('#vTotalSudahBbn');
         let vTotalBbn = $('#vTotalBbn');
+        let iSamsat = $('#iSamsat');
         let dExcel = $('#dExcel');
         let dPdf = $('#dPdf');
         let dataID;
@@ -81,12 +91,16 @@
             ],
         });
 
-        function reloadReport() {
+        function reloadReport(samsat) {
             $.ajax({
                 url: '{{ url('laporan/bbn-per-samsat/list') }}',
                 method: 'post',
+                data: {
+                    samsat: samsat,
+                },
                 success: function (response) {
                     // console.log(response);
+                    tableReport.clear().draw();
                     tableReport.rows.add(response).draw();
                 },
                 error: function (response) {
@@ -96,7 +110,24 @@
         }
 
         $(document).ready(function () {
-            reloadReport();
+            reloadReport('all');
+
+            iSamsat.select2({
+                ajax: {
+                    url: '{{ url('data/samsat') }}',
+                    dataType: 'json',
+                    data: function (params) {
+                        return {
+                            search: params.term,
+                        }
+                    }
+                }
+            });
+
+            iSamsat.change(function () {
+                // console.log(iSamsat.val());
+                reloadReport(iSamsat.val());
+            });
 
             tableReport.on('draw', function () {
                 let belumBBN = 0;
@@ -124,11 +155,20 @@
             dExcel.click(function (e) {
                 e.preventDefault();
                 download.src = '{{ url('laporan/bbn-per-samsat/export/excel') }}';
+                if (iSamsat.val() === null) {
+                    window.open('{{ url('laporan/bbn-per-samsat/export/excel/all') }}');
+                } else {
+                    window.open('{{ url('laporan/bbn-per-samsat/export/excel') }}/'+iSamsat.val());
+                }
             });
 
             dPdf.click(function (e) {
                 e.preventDefault();
-                window.open('{{ url('laporan/bbn-per-samsat/export/pdf') }}');
+                if (iSamsat.val() === null) {
+                    window.open('{{ url('laporan/bbn-per-samsat/export/pdf/all') }}');
+                } else {
+                    window.open('{{ url('laporan/bbn-per-samsat/export/pdf') }}/'+iSamsat.val());
+                }
             });
         });
     </script>

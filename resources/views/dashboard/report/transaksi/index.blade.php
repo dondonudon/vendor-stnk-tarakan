@@ -32,10 +32,6 @@
                                         <input type="text" class="form-control text-right" name="tgl_bbn" id="iTanggalBBN">
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-lg-7"></div>
-                                <div class="col-sm-12 col-lg-2">
-                                    <button type="submit" class="btn btn-block btn-primary">VIEW</button>
-                                </div>
                             </div>
                         </form>
                         <hr>
@@ -179,13 +175,22 @@
         }
 
         $(document).ready(function () {
-            iTanggalBBN.daterangepicker();
+            reloadReport(
+                moment().startOf('month').format('YYYY-MM-DD'),
+                moment().endOf('month').format('YYYY-MM-DD')
+            );
 
-            formFilter.submit(function (e) {
-                e.preventDefault();
-                let startDate = moment(iTanggalBBN.data('daterangepicker').startDate).format('YYYY-MM-DD');
-                let endDate = moment(iTanggalBBN.data('daterangepicker').endDate).format('YYYY-MM-DD');
-                reloadReport(startDate,endDate);
+            iTanggalBBN.daterangepicker({
+                startDate: moment().startOf('month'),
+                endDate: moment().endOf('month'),
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            }, function (start,end,label) {
+                reloadReport(
+                    moment(start).format('YYYY-MM-DD'),
+                    moment(end).format('YYYY-MM-DD')
+                );
             });
 
             tableReport.on('draw', function () {

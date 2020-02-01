@@ -39,10 +39,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-lg-4"></div>
-                                <div class="col-sm-12 col-lg-2">
-                                    <button type="submit" class="btn btn-block btn-primary">VIEW</button>
-                                </div>
                             </div>
                         </form>
                         <hr>
@@ -136,18 +132,18 @@
         }
 
         $(document).ready(function () {
-            iPeriode.daterangepicker({
-                locale: {
-                    format: 'D-M-Y'
-                }
-            });
+            reloadReport(
+                moment().startOf('month').format('YYYY-MM-DD'),
+                moment().endOf('month').format('YYYY-MM-DD'),
+                iStatus.val()
+            );
 
-            formFilter.submit(function (e) {
-                e.preventDefault();
-                let startDate = moment(iPeriode.data('daterangepicker').startDate).format('YYYY-MM-DD');
-                let endDate = moment(iPeriode.data('daterangepicker').endDate).format('YYYY-MM-DD');
-                let status = iStatus.val();
-                reloadReport(startDate,endDate,status);
+            iPeriode.daterangepicker({
+                startDate: moment().startOf('month'),
+                endDate: moment().endOf('month'),
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
             });
 
             tableReport.on('draw', function () {

@@ -193,8 +193,8 @@ Route::middleware(['check.login','menupermission'])->group(function () {
 //    LAPORAN PER SAMSAT
     Route::get('laporan/bbn-per-samsat','c_LaporanBbnSamsat@index');
     Route::post('laporan/bbn-per-samsat/list','c_LaporanBbnSamsat@list');
-    Route::get('laporan/bbn-per-samsat/export/excel','c_LaporanBbnSamsat@exportExcel');
-    Route::get('laporan/bbn-per-samsat/export/pdf','c_LaporanBbnSamsat@exportPDF');
+    Route::get('laporan/bbn-per-samsat/export/excel/{samsat}','c_LaporanBbnSamsat@exportExcel');
+    Route::get('laporan/bbn-per-samsat/export/pdf/{samsat}','c_LaporanBbnSamsat@exportPDF');
 
 //    LAPORAN PER PERIODE
     Route::get('laporan/bbn-per-periode','c_LaporanBbnPeriode@index');

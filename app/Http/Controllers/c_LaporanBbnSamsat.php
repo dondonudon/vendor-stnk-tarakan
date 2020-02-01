@@ -15,12 +15,8 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class c_LaporanBbnSamsat extends Controller
 {
-    public function index() {
-        return view('dashboard.report.bbn-per-samsat.index');
-    }
-
-    public function list() {
-        $trn = DB::table('po_trns')
+    public function dataset($samsat) {
+        $result = DB::table('po_trns')
             ->select(
                 'ms_samsat.nama as samsat',
                 'ms_dealer.nama as dealer',
@@ -30,21 +26,36 @@ class c_LaporanBbnSamsat extends Controller
             )
             ->join('po_mst','po_trns.no_po','=','po_mst.no_po')
             ->join('ms_samsat','po_mst.id_samsat','=','ms_samsat.id')
-            ->join('ms_dealer','po_mst.id_dealer','=','ms_dealer.id')
-            ->groupBy('samsat','dealer')
-            ->orderBy('samsat','asc')
-            ->get();
-
-        return $trn;
+            ->join('ms_dealer','po_mst.id_dealer','=','ms_dealer.id');
+        if ($samsat == 'all') {
+            return $result
+                ->groupBy('samsat','dealer')
+                ->orderBy('samsat','asc')
+                ->get();
+        } else {
+            return $result
+                ->where('ms_samsat.id','=',$samsat)
+                ->groupBy('samsat','dealer')
+                ->orderBy('samsat','asc')
+                ->get();
+        }
     }
 
-    public function exportExcel() {
+    public function index() {
+        return view('dashboard.report.bbn-per-samsat.index');
+    }
+
+    public function list(Request $request) {
+        return $this->dataset($request->samsat);
+    }
+
+    public function exportExcel($samsat) {
         try {
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
             $sheet->fromArray(['SAMSAT','DELAER','BELUM BBN','SUDAH BBN','TOTAL'],'','A1');
 
-            $trn = $this->list();
+            $trn = $this->dataset($samsat);
             $belumBBN = 0; $sudahBBN = 0; $total = 0; $i = 2;
             foreach ($trn as $t) {
                 $sheet->fromArray([
@@ -87,9 +98,9 @@ class c_LaporanBbnSamsat extends Controller
         }
     }
 
-    public function exportPDF() {
+    public function exportPDF($samsat) {
         try {
-            $trn['data'] = $this->list();
+            $trn['data'] = $this->dataset($samsat);
             $trn['company'] = DB::table('sys_profile')->get()->keyBy('name');
 
             $pdf = PDF::loadView('dashboard.report.bbn-per-samsat.pdf',$trn);

@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d4e755f-fefb-4764-bc82-cdd0d2256f9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vendor-stnk-tarakan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/c_LaporanBbnSamsat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/c_LaporanBbnSamsat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-dealer/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-dealer/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-periode/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-periode/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-samsat/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/bbn-per-samsat/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/detail-pencairan-piutang/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/detail-pencairan-piutang/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/rekap-tagihan-per-po/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/rekap-tagihan-per-po/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/report/transaksi/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/report/transaksi/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +106,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
@@ -125,6 +136,8 @@
       <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
       <path value="$PROJECT_DIR$/vendor/spatie/db-dumper" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-backup" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark-ext-table" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TEbjrUUWsFq1HRmQquHUW7vWLK" />
@@ -256,7 +269,7 @@
       <workItem from="1579639445878" duration="493000" />
       <workItem from="1579640136988" duration="1001000" />
       <workItem from="1579819517499" duration="2239000" />
-      <workItem from="1580349568993" duration="655000" />
+      <workItem from="1580349568993" duration="9180000" />
     </task>
     <task id="LOCAL-00001" summary="Menu Update Kelengkapan Notice selesai">
       <created>1574480169297</created>

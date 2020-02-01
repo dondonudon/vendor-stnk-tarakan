@@ -30,10 +30,6 @@
                                         <select name="no_po" id="iNoPO" style="width: 100%" required></select>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-lg-7"></div>
-                                <div class="col-sm-12 col-lg-2">
-                                    <button type="submit" class="btn btn-block btn-primary">VIEW</button>
-                                </div>
                             </div>
                         </form>
                         <hr>
@@ -171,6 +167,13 @@
             ],
         });
 
+        function WarningPORequired() {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No Purchase Order wajib diisi',
+            });
+        }
+
         function reloadReport(noPO,status) {
             $.ajax({
                 url: '{{ url('laporan/rekap-tagihan-per-po/list') }}',
@@ -180,9 +183,10 @@
                     status: status
                 },
                 success: function (response) {
-                    // console.log(noPO);
+                    // console.log(response);
                     tableReport.clear().draw();
                     tableReport.rows.add(response).draw();
+                    Loading('end');
                 },
                 error: function (response) {
                     console.log(response);
@@ -203,8 +207,8 @@
                 }
             });
 
-            formFilter.submit(function (e) {
-                e.preventDefault();
+            iNoPO.change(function () {
+                Loading('start');
                 let noPO = iNoPO.val();
                 let status = iStatus.val();
                 reloadReport(noPO,status);
@@ -256,10 +260,7 @@
                 let status = iStatus.val();
                 // console.log(dealer);
                 if (dealer === null) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Dealer wajib diisi',
-                    })
+                    WarningPORequired();
                 } else {
                     bExport.addClass('d-none');
                     loading.removeClass('d-none');
@@ -273,10 +274,7 @@
                 let status = iStatus.val();
                 // console.log(dealer);
                 if (dealer === null) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Dealer wajib diisi',
-                    })
+                    WarningPORequired();
                 } else {
                     window.open('{{ url('laporan/rekap-tagihan-per-po/export/pdf') }}/' + dealer);
                 }

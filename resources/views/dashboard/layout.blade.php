@@ -41,16 +41,20 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    function Loading($status) {
-        if ($status == 'start') {
-            Swal.fire({
-                title: 'Loading',
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-        } else {
-            Swal.close();
+    function Loading(status) {
+        switch (status) {
+            case 'start':
+                Swal.fire({
+                    title: 'Loading',
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+                break;
+
+            case 'end':
+                Swal.close();
+                break;
         }
     }
 </script>

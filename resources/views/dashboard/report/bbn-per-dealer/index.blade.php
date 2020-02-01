@@ -124,11 +124,16 @@
                     status: status
                 },
                 success: function (response) {
-                    console.log(dealer);
+                    // console.log(status);
                     tableReport.clear().draw();
                     tableReport.rows.add(response).draw();
                 },
                 error: function (response) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'System Error',
+                        text: 'Silahkan Hubungi WAVE Solusi Indonesia'
+                    });
                     console.log(response);
                 }
             });
@@ -147,8 +152,13 @@
                 }
             });
 
-            formFilter.submit(function (e) {
-                e.preventDefault();
+            iDealer.change(function () {
+                let dealer = iDealer.val();
+                let status = iStatus.val();
+                reloadReport(dealer,status);
+            });
+
+            iStatus.change(function () {
                 let dealer = iDealer.val();
                 let status = iStatus.val();
                 reloadReport(dealer,status);
@@ -193,7 +203,14 @@
                 e.preventDefault();
                 let dealer = iDealer.val();
                 let status = iStatus.val();
-                window.open('{{ url('laporan/bbn-per-dealer/export/pdf') }}/'+dealer+'/'+status);
+                if (dealer == null) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Dealer wajib diisi',
+                    });
+                } else {
+                    window.open('{{ url('laporan/bbn-per-dealer/export/pdf') }}/'+dealer+'/'+status);
+                }
             });
 
             window.onfocus = function () {

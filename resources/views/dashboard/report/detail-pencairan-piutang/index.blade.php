@@ -30,21 +30,17 @@
                                         <input type="text" class="form-control text-right" name="tgl_bbn" id="iTanggalBBN">
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-lg-7"></div>
-                                <div class="col-sm-12 col-lg-2">
-                                    <button type="submit" class="btn btn-block btn-primary">VIEW</button>
-                                </div>
                             </div>
                         </form>
                         <hr>
-                        <table id="tableReport" class="table table-sm table-striped table-borderless nowrap" style="width: 100%">
+                        <table id="tableReport" class="table table-sm table-striped table-bordered nowrap" style="width: 100%">
                             <thead>
                             <tr>
                                 <th>TGL PO</th>
+                                <th>NO PO</th>
                                 <th>NAMA</th>
                                 <th>DAERAH</th>
                                 <th>JUMLAH</th>
-                                <th>NO PO</th>
                                 <th>PENCAIRAN</th>
                                 <th>TGL TAGIHAN</th>
                                 <th>SERAH STNK</th>
@@ -86,11 +82,16 @@
         let tableReport = $('#tableReport').DataTable({
             scrollX: true,
             columns: [
-                {data: 'tgl_po'},
+                {
+                    data: 'tgl_po',
+                    render: function (data) {
+                        return moment(data).format('DD/MM/YYYY');
+                    }
+                },
+                {data: 'no_po'},
                 {data: 'nama'},
                 {data: 'daerah'},
                 {data: 'jumlah'},
-                {data: 'no_po'},
                 {
                     data: 'pencairan',
                     render: function (data) {
@@ -127,13 +128,19 @@
         }
 
         $(document).ready(function () {
-            iTanggalBBN.daterangepicker();
+            reloadReport(
+                moment().startOf('month').format('YYYY-MM-DD'),
+                moment().endOf('month').format('YYYY-MM-DD')
+            );
 
-            formFilter.submit(function (e) {
-                e.preventDefault();
-                let startDate = moment(iTanggalBBN.data('daterangepicker').startDate).format('YYYY-MM-DD');
-                let endDate = moment(iTanggalBBN.data('daterangepicker').endDate).format('YYYY-MM-DD');
-                reloadReport(startDate,endDate);
+            iTanggalBBN.daterangepicker({
+                startDate: moment().startOf('month'),
+                endDate: moment().endOf('month'),
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            }, function(start, end, label) {
+                reloadReport(start,end);
             });
 
             tableReport.on('draw', function () {
